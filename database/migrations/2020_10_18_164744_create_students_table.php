@@ -13,8 +13,12 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('etudiants', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("personne_id");
+            $table->boolean("nouvel_etudiant");
+            $table->boolean("redoublant");
+            $table->foreign('personne_id')->references('id')->on('personnes');
             $table->timestamps();
         });
     }

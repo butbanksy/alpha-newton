@@ -17,4 +17,6 @@ use App\Http\Controllers\admin\AdminController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/login', [AdminController::class, 'login']);
 
+Auth::routes();

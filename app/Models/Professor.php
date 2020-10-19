@@ -9,8 +9,11 @@ class Professor extends Model
 {
     use HasFactory;
 
+    protected $guarded = ["id"];
+    protected $table = "professeurs";
+
     public function person()
     {
-        return $this->belongsTo('App\Models\Person');
+        return $this->belongsTo(Person::class, "personne_id");
     }
 }

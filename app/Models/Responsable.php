@@ -9,8 +9,12 @@ class Responsable extends Model
 {
     use HasFactory;
 
+    protected $guarded = ["id"];
+
+    protected $table = "responsables";
+
     public function student()
     {
-        return $this->belongsTo('App\Models\Student');
+        return $this->belongsTo(Student::class, "etudiant_id");
     }
 }

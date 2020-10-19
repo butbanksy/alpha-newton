@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Person;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,7 +16,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view("admin/dashboard");
+        $etudiants = Person::all();
+        return view("admin/dashboard", ["etudiants"=>$etudiants]);
     }
 
     public function login()

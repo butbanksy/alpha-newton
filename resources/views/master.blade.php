@@ -24,14 +24,14 @@
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
     <!-- Font-->
-    <link rel="stylesheet" type="text/css" href="css/opensans-font.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/opensans-font.css')}}" />
     <link
       rel="stylesheet"
       type="text/css"
-      href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"
+      href="{{asset('fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}"
     />
     <!-- Main Style Css -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{asset('css/style.css')}}" />
     <!-- jQuery core JS -->
     <script src="{{ asset('js/jquery-3.5.1.min.js')}}"></script>
 
@@ -47,9 +47,6 @@
 <!-- <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}"> -->
 </head>
 <body>
-<header>
-    @yield('header')
-</header>
 <main class="py-4">
     @yield('content')
 </main>

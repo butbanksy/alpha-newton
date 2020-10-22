@@ -1,4 +1,4 @@
-
+@extends("../master")
   <head>
     <meta charset="utf-8" />
     <title>Formulaire Prof</title>

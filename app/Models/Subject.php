@@ -9,8 +9,11 @@ class Subject extends Model
 {
     use HasFactory;
 
+    protected $guarded = ["id"];
+    protected $table = "matieres";
+
     public function students()
     {
-        return $this->belongsToMany('App\Models\Student');
+        return $this->belongsToMany(Student::class, "etudiants_matieres", "matiere_id", "etudiant_id");
     }
 }

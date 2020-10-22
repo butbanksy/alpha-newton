@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Student;
 
 class HomeController extends Controller
 {
@@ -15,6 +15,51 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        /*
+                $person = Person::create([
+                    "nom" => "Mahmoud",
+                    "prenom" => "Rhazzoul",
+                    "date_naissance" => "1997/07/07",
+                    "lieu_naissance" => "Safi",
+                    "maladie_audition" => false,
+                    "maladie_vue" => false,
+                    "maladie_respiratoire" => false,
+                    "maladie_specifique" => false,
+                    "etablissement" => "ENSA",
+                    "option" => "Systèmes et Réseaux informatiques",
+                    "niveau_scolaire" => "4ème Année",
+                    "email" => "mrhazzoul@gmail.com",
+                    "telephone" => "0660004848",
+                    "adresse" => "16, Rue Lisbonne, Safi"
+                ]);
+
+                $student = Student::create([
+                    "personne_id" => $person->id,
+                    "nouvel_etudiant" => true,
+                    "redoublant" => false,
+                ]);
+
+                $responsable = Responsable::create([
+                    "etudiant_id" => $student->id,
+                    "prenom" => "Omar",
+                    "nom" => "Rhazzoul",
+                    "profession" => "Photographe",
+                    "adresse" => "16, Rue Lisbonne, Quartier Industriel",
+                    "telephone" => "0660004848",
+                    "email" => "mrhazzoul@gmail.com",
+                ]);
+        */
+
+        $student = Student::where("id", 3)->with(["person", "responsable", "subjects"])->first();
+
+
+
+        return view("home", ["student" => $student]);
+
+    }
+
+    public function header()
+    {
+        return view("header");
     }
 }

@@ -47,6 +47,9 @@
 <!-- <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}"> -->
 </head>
 <body>
+<header>
+    @yield('header')
+</header>
 <main class="py-4">
     @yield('content')
 </main>

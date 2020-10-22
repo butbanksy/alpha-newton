@@ -15,10 +15,8 @@ use App\Http\Controllers\admin\AdminController;
 |
 */
 
-//Route::get('/', [HomeController::class, 'index']);
-Route::get('/', function(){
-    return "g=hello";
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/header', [HomeController::class, 'header']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/login', [AdminController::class, 'login']);
 Route::get('/ind',function(){

@@ -14,7 +14,24 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
+<!-- ***************************** -->
 
+<meta charset="utf-8" />
+   
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <!-- Font-->
+    <link rel="stylesheet" type="text/css" href="css/opensans-font.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"
+    />
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="css/style.css" />
     <!-- jQuery core JS -->
     <script src="{{ asset('js/jquery-3.5.1.min.js')}}"></script>
 

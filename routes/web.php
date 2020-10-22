@@ -15,8 +15,14 @@ use App\Http\Controllers\admin\AdminController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+//Route::get('/', [HomeController::class, 'index']);
+Route::get('/', function(){
+    return "g=hello";
+});
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/login', [AdminController::class, 'login']);
+Route::get('/ind',function(){
+    return view("form_prof/index");
+});
 
 Auth::routes();

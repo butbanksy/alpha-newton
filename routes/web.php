@@ -19,8 +19,14 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/header', [HomeController::class, 'header']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/login', [AdminController::class, 'login']);
-Route::get('/ind',function(){
+Route::get('/prof',function(){
     return view("form_prof/index");
+});
+Route::get('/etud',function(){
+    return view("form_etu/index");
+});
+Route::get('/adm',function(){
+    return view("form_admin/index");
 });
 
 Auth::routes();

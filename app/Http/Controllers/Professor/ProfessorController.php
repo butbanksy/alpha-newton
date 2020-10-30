@@ -39,7 +39,17 @@ class ProfessorController extends Controller
             "personne_id" => $person->id
         ]);
 
-        $pdf = PDF::loadView('pdf.professor', ["data" => $professor]);
-        return $pdf->download('inscription.pdf');
+        $pdf = PDF::loadView('pdf.professor',
+            ["data" => $professor],
+            ['default_font' => 'dejavusans']);
+        return $pdf->stream('inscription.pdf');
+    }
+
+    public function pdf()
+    {
+        $pdf = PDF::loadView('pdf.professor',
+            [], [], ["font-family"=>"XB Riyaz"]);
+
+        return $pdf->stream('inscription.pdf');
     }
 }

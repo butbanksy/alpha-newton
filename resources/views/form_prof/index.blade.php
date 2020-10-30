@@ -4,8 +4,6 @@
 @section("title","Login")
 
 @push("top")
-    <style>
-    </style>
 @endpush
 
 @section("content")
@@ -14,170 +12,180 @@
             <div class="wizard-form">
                 <form class="form-register" action="/inscription/professeur" method="post">
                     <div id="form-total">
-                        <!-- SECTION 1 -->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                    @endif
+
+                    <!-- SECTION 1 -->
                         <h2>
                             <p class="step-icon"><span>1</span></p>
                             <span class="step-text">Informations Personnelles</span>
                         </h2>
 
-                            <section>
-                                @csrf
-                                <div class="inner">
-                                    <div class="wizard-header">
-                                        <h3 class="heading"></h3>
-                                        <p></p>
-                                    </div>
+                        <section>
+                            @csrf
+                            <div class="inner">
+                                <div class="wizard-header">
+                                    <h3 class="heading"></h3>
+                                    <p></p>
+                                </div>
 
-                                    <div class="form-row">
-                                        <div class="form-holder">
-                                            <fieldset>
-                                                <legend>Nom</legend>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="first-name"
-                                                    name="nom"
-                                                    placeholder="Votre Nom"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                        <div class="form-holder">
-                                            <fieldset>
-                                                <legend>Prénom</legend>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="last-name"
-                                                    name="prenom"
-                                                    placeholder="Votre Prénom"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
+                                <div class="form-row">
+                                    <div class="form-holder">
+                                        <fieldset>
+                                            <legend>Nom</legend>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="first-name"
+                                                name="nom"
+                                                placeholder="Votre Nom"
+                                                required
+                                            />
+                                        </fieldset>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="form-holder form-holder-2">
-                                            <fieldset>
-                                                <legend>Courriel</legend>
-                                                <input
-                                                    type="text"
-                                                    name="email"
-                                                    id="your_email"
-                                                    class="form-control"
-                                                    pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
-                                                    placeholder="example@email.com"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-holder form-holder-2">
-                                            <fieldset>
-                                                <legend>Téléphone</legend>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="phone"
-                                                    name="telephone"
-                                                    placeholder="+21267891011112"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="form-row form-row-date">
-                                        <div class="form-holder form-holder-2">
-                                            <fieldset>
-                                                <legend>Date de Naissance</legend>
-                                                <input
-                                                    type="date"
-                                                    class="form-control"
-                                                    id="date_naiss"
-                                                    name="date_naissance"
-                                                    placeholder="jour/mois/année"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="form-row form-row-date">
-                                        <div class="form-holder form-holder-2">
-                                            <fieldset>
-                                                <legend>Lieu de Naissance</legend>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="lieu"
-                                                    name="lieu_naissance"
-                                                    placeholder="Safi"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="form-row form-row-date">
-                                        <div class="form-holder form-holder-2">
-                                            <fieldset>
-                                                <legend>Adresse</legend>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="lieu"
-                                                    name="adresse"
-                                                    placeholder="N° 11 quartier AMAL1 Safi"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="form-row form-row-date">
-                                        <div class="form-holder form-holder-2">
-                                            <fieldset>
-                                                <legend>Niveau Scolaire</legend>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="niveau"
-                                                    name="niveau_scolaire"
-                                                    placeholder="2ème année Bac"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="form-row form-row-date">
-                                        <div class="form-holder form-holder-2">
-                                            <fieldset>
-                                                <legend>Matière</legend>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="option"
-                                                    name="option"
-                                                    placeholder="SVT"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="form-row form-row-date">
-                                        <div class="form-holder form-holder-2">
-                                            <fieldset>
-                                                <legend>Etablissement</legend>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="etablissement"
-                                                    name="etablissement"
-                                                    placeholder="AlPHA Newton"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
+                                    <div class="form-holder">
+                                        <fieldset>
+                                            <legend>Prénom</legend>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="last-name"
+                                                name="prenom"
+                                                placeholder="Votre Prénom"
+                                                required
+                                            />
+                                        </fieldset>
                                     </div>
                                 </div>
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <fieldset>
+                                            <legend>Courriel</legend>
+                                            <input
+                                                type="text"
+                                                name="email"
+                                                id="your_email"
+                                                class="form-control"
+                                                pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                                                placeholder="example@email.com"
+                                                required
+                                            />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <fieldset>
+                                            <legend>Téléphone</legend>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="phone"
+                                                name="telephone"
+                                                placeholder="+21267891011112"
+                                                required
+                                            />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-row form-row-date">
+                                    <div class="form-holder form-holder-2">
+                                        <fieldset>
+                                            <legend>Date de Naissance</legend>
+                                            <input
+                                                type="date"
+                                                class="form-control"
+                                                id="date_naiss"
+                                                name="date_naissance"
+                                                placeholder="jour/mois/année"
+                                                required
+                                            />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-row form-row-date">
+                                    <div class="form-holder form-holder-2">
+                                        <fieldset>
+                                            <legend>Lieu de Naissance</legend>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="lieu"
+                                                name="lieu_naissance"
+                                                placeholder="Safi"
+                                                required
+                                            />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-row form-row-date">
+                                    <div class="form-holder form-holder-2">
+                                        <fieldset>
+                                            <legend>Adresse</legend>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="lieu"
+                                                name="adresse"
+                                                placeholder="N° 11 quartier AMAL1 Safi"
+                                                required
+                                            />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-row form-row-date">
+                                    <div class="form-holder form-holder-2">
+                                        <fieldset>
+                                            <legend>Niveau Scolaire</legend>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="niveau"
+                                                name="niveau_scolaire"
+                                                placeholder="2ème année Bac"
+                                                required
+                                            />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-row form-row-date">
+                                    <div class="form-holder form-holder-2">
+                                        <fieldset>
+                                            <legend>Matière</legend>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="option"
+                                                name="option"
+                                                placeholder="SVT"
+                                                required
+                                            />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-row form-row-date">
+                                    <div class="form-holder form-holder-2">
+                                        <fieldset>
+                                            <legend>Etablissement</legend>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="etablissement"
+                                                name="etablissement"
+                                                placeholder="AlPHA Newton"
+                                                required
+                                            />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
                         <!-- SECTION 2 -->
                         <h2>
@@ -253,5 +261,7 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.steps.js')}}"></script>
 
 @endsection

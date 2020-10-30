@@ -11,13 +11,10 @@
     <title>Alpha Newton</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
     <!-- ***************************** -->
 
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
 
     <!-- Mobile Specific Metas -->
     <meta
@@ -25,14 +22,16 @@
         content="width=device-width, initial-scale=1, maximum-scale=1"
     />
     <!-- Font-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/opensans-font.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/opensans-font.css')}}"/>
     <link
         rel="stylesheet"
         type="text/css"
         href="{{asset('fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}"
     />
     <!-- Main Style Css -->
-    <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/util.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/main.css')}}"/>
     <!-- jQuery core JS -->
     <script src="{{ asset('js/jquery-3.5.1.min.js')}}"></script>
 
@@ -40,12 +39,12 @@
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
 
 
-
     <!-- Custom styles for this template -->
 <!-- <link href = {{ asset("bootstrap/css/sticky-footer-navbar.css") }} rel="stylesheet" /> -->
 
     <!-- Optional theme -->
 <!-- <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}"> -->
+
 </head>
 <body>
 <main class="py-4">

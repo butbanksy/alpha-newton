@@ -22,6 +22,7 @@ Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/login', [AdminController::class, 'login']);
 
 Route::get('/inscription/professeur',[ProfessorController::class, 'index']);
+Route::get('/pdf',[ProfessorController::class, 'pdf']);
 Route::post('/inscription/professeur',[ProfessorController::class, 'store']);
 
 

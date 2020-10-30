@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Controllers\Professor;
+
+use App\Http\Controllers\Controller;
+use App\Models\Person;
+use App\Models\Professor;
+use PDF;
+use Illuminate\Http\Request;
+
+class ProfessorController extends Controller
+{
+    public function index()
+    {
+        return view("form_prof/index");
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'prenom' => 'required|min:3|max:30',
+            'nom' => 'required|min:3|max:30',
+            'date' => '',
+            'lieu_naissance' => 'required|min:2|max:40',
+            'adresse' => 'required|min:3',
+            'telephone' => 'required|numeric',
+            'email' => 'required|email',
+            'niveau_scolaire' => 'required',
+            'option' => 'required',
+            'etablissement' => 'required',
+            'maladie_specifique' => 'required',
+            'maladie_respiratoire' => 'required',
+            'maladie_vue' => 'required',
+            'maladie_audition' => 'required',
+        ]);
+
+        $person = Person::create($request->all());
+        $professor = Professor::create([
+            "personne_id" => $person->id
+        ]);
+
+        $pdf = PDF::loadView('pdf.professor', ["data" => $professor]);
+        return $pdf->download('inscription.pdf');
+    }
+}

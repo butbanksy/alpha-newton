@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Professor\ProfessorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,11 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/header', [HomeController::class, 'header']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/login', [AdminController::class, 'login']);
-Route::get('/prof',function(){
-    return view("form_prof/index");
-});
+
+Route::get('/inscription/professeur',[ProfessorController::class, 'index']);
+Route::post('/inscription/professeur',[ProfessorController::class, 'store']);
+
+
 Route::get('/etud',function(){
     return view("form_etu/index");
 });

@@ -37,6 +37,7 @@
 
     <!-- Bootstrap core JS -->
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/main.js')}}"></script>
 
 
     <!-- Custom styles for this template -->
@@ -48,6 +49,7 @@
 </head>
 <body>
 <main class="py-4">
+    @include('header')
     @yield('content')
 </main>
 

@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Professor\ProfessorController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,21 +16,29 @@ use App\Http\Controllers\Professor\ProfessorController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/header', [HomeController::class, 'header']);
-Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/login', [AdminController::class, 'login']);
 
-Route::get('/inscription/professeur',[ProfessorController::class, 'index']);
-Route::get('/pdf',[ProfessorController::class, 'pdf']);
-Route::post('/inscription/professeur',[ProfessorController::class, 'store']);
+Route::redirect('/', '/fr');
 
 
-Route::get('/etud',function(){
-    return view("form_etu/index");
+Route::group(['prefix' => '{language}'], function () {
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/header', [HomeController::class, 'header']);
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/login', [AdminController::class, 'login']);
+    Route::get('/inscription', [HomeController::class, 'inscription']);
+
+    Route::get('/inscription/professeur', [ProfessorController::class, 'index']);
+    Route::get('/pdf', [ProfessorController::class, 'pdf']);
+    Route::post('/inscription/professeur', [ProfessorController::class, 'store']);
+
+
+    Route::get('/etud', function () {
+        return view("form_etu/index");
+    });
+    Route::get('/adm', function () {
+        return view("form_admin/index");
+    });
+
+    Auth::routes();
 });
-Route::get('/adm',function(){
-    return view("form_admin/index");
-});
 
-Auth::routes();

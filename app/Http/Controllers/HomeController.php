@@ -53,7 +53,6 @@ class HomeController extends Controller
         $student = Student::where("id", 3)->with(["person", "responsable", "subjects"])->first();
 
 
-
         return view("home", ["student" => $student]);
 
     }
@@ -61,5 +60,10 @@ class HomeController extends Controller
     public function header()
     {
         return view("header");
+    }
+
+    public function inscription()
+    {
+        return view("inscription");
     }
 }

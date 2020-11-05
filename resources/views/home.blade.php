@@ -2,17 +2,27 @@
 
 
 @section('content')
-<div class="container">
-    <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        {{$student}}
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-    </div>
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="text-center">
+                <h4>Veuillez séléctionner une langue</h4>
+                <br>
+                <h4 style="direction: rtl">المرجو اختيار اللغة</h4>
+            <div class="d-flex justify-content-around align-items-center" style="height: 50vh">
+                <h5>
+                    <a href="fr/inscription">
+                <img src="{{asset('/images/Flag_of_France.svg')}}" alt="Français" width="200" height="133">
+                    <br/>Français
+                    </a>
+                </h5>
+                <h5 style="direction: rtl;">
+                    <a href="ar/inscription">
+                <img src="{{asset('/images/Flag_of_Morocco.svg')}}" alt="Arabe" width="200" height="133">
+                    <br/>العربية
+                    </a>
 
-</div>
+                </h5>
+            </div>
+        </div>
+    </div>
 @endsection

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::redirect('/', '/fr');
+Route::redirect('/admin', '/fr/admin');
 
 
 Route::group(['prefix' => '{language}'], function () {

@@ -22,7 +22,7 @@
                             <h5 class="card-title">Nombre de professeurs inscrits</h5>
                             <h4 class="text-center">{{count($professeurs)}}</h4>
                             <br/>
-                            <a href="#" class="btn btn-primary">Voir les professeurs inscrits</a>
+                            <a href="/fr/admin/professeurs" class="btn btn-primary">Voir les professeurs inscrits</a>
                         </div>
                     </div>
                 </div>

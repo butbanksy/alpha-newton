@@ -34,9 +34,11 @@
                         <td>{{$etudiant->person->option}}</td>
                         <td>{{$etudiant->person->etablissement}}</td>
                         <td>
-                            <div class="btn btn-primary more-info">
-                                Plus d'infos
-                            </div>
+                            <a href="/fr/admin/student/{{$etudiant->id}}">
+                                <div class="btn btn-primary more-info">
+                                    Plus d'infos
+                                </div>
+                            </a>
                         </td>
                     </tr>
                 @endforeach()
@@ -48,37 +50,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    {{
-                        "Le nom est " . $etudiants->find(1)->person->prenom
-                    }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary clk" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        $(".more-info").click(function() {
-            console.log("hhhh");
-            var id = $("#table").find("id").text();
-            alert(id)// Testing: append the contents of the td to a div
-        });
-
-
-    </script>
 
 
 @endsection()

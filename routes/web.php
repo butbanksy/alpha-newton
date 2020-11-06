@@ -28,7 +28,15 @@ Route::group(['prefix' => '{language}'], function () {
     //Admin routes
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/login', [AdminController::class, 'login']);
+
     Route::get('/admin/students', [AdminController::class, 'showStudents']);
+    Route::get('/admin/student/{id}', [AdminController::class, 'showStudent']);
+    Route::get('/admin/student/delete/{id}', [AdminController::class, 'deleteStudent']);
+
+    Route::get('/admin/professeurs', [AdminController::class, 'showProfessors']);
+    Route::get('/admin/professeur/{id}', [AdminController::class, 'showProfessor']);
+    Route::get('/admin/professeur/delete/{id}', [AdminController::class, 'deleteProfessor']);
+
 
     Route::get('/inscription', [HomeController::class, 'inscription']);
 

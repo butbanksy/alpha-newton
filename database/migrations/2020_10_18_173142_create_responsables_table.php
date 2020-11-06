@@ -22,7 +22,7 @@ class CreateResponsablesTable extends Migration
             $table->string("adresse");
             $table->string("telephone");
             $table->string("email");
-            $table->foreign("etudiant_id")->references("id")->on("etudiants");
+            $table->foreign("etudiant_id")->references("id")->on("etudiants")->onDelete('cascade');
             $table->timestamps();
         });
     }

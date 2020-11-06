@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->unsignedBigInteger("personne_id");
             $table->boolean("nouvel_etudiant");
             $table->boolean("redoublant");
-            $table->foreign('personne_id')->references('id')->on('personnes');
+            $table->foreign('personne_id')->references('id')->on('personnes')->onDelete('cascade');
             $table->timestamps();
         });
     }

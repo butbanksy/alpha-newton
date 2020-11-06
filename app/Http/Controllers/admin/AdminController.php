@@ -20,11 +20,17 @@ class AdminController extends Controller
     {
         $etudiants = Student::with("person")->get();
         $professeurs = Professor::with("person")->get();
-        return view("admin/dashboard", ["etudiants"=>$etudiants, "professeurs"=>$professeurs]);
+        return view("admin/dashboard", ["etudiants" => $etudiants, "professeurs" => $professeurs]);
     }
 
     public function login()
     {
         return view("admin/login");
+    }
+
+    public function showStudents()
+    {
+        $etudiants = Student::with("person")->get();
+        return view("admin/students", ["etudiants" => $etudiants]);
     }
 }

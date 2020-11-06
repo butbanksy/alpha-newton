@@ -24,21 +24,20 @@ Route::redirect('/admin', '/fr/admin');
 Route::group(['prefix' => '{language}'], function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::get('/header', [HomeController::class, 'header']);
+
+    //Admin routes
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/login', [AdminController::class, 'login']);
+    Route::get('/admin/students', [AdminController::class, 'showStudents']);
+
     Route::get('/inscription', [HomeController::class, 'inscription']);
 
+    //Professor routes
     Route::get('/inscription/professeur', [ProfessorController::class, 'index']);
-    Route::get('/pdf', [ProfessorController::class, 'pdf']);
     Route::post('/inscription/professeur', [ProfessorController::class, 'store']);
 
 
-    Route::get('/etud', function () {
-        return view("form_etu/index");
-    });
-    Route::get('/adm', function () {
-        return view("form_admin/index");
-    });
+    Route::get('/pdf', [ProfessorController::class, 'pdf']);
 
     Auth::routes();
 });

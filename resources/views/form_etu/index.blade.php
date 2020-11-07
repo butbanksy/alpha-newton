@@ -10,283 +10,248 @@
 @endpush
 
 @section("content")
-	<div class="page-content">
-		<div class="form-v1-content">
-			<div class="wizard-form">
-		        <form class="form-register" action="#" method="post">
-		        	<div id="form-total">
-		        		<!-- SECTION 1 -->
-			            <h2>
-			            	<p class="step-icon"><span>1</span></p>
-			            	<span class="step-text">Informations Personnelles</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading"></h3>
-									<p> </p>
-								</div>
-								<div class="form-row">
-									<div class="form-holder">
-										<fieldset>
-											<legend>Nom</legend>
-											<input type="text" class="form-control" id="first-name" name="first-name" placeholder="Votre Nom" required>
-										</fieldset>
-									</div>
-									<div class="form-holder">
-										<fieldset>
-											<legend>Prénom</legend>
-											<input type="text" class="form-control" id="last-name" name="last-name" placeholder="Votre Prénom" required>
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Courriel</legend>
-											<input type="text" name="your_email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" required>
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Téléphone</legend>
-											<input type="text" class="form-control" id="phone" name="phone" placeholder="+21267891011112" required>
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Date de Naissance</legend>
-										<input type="date" class="form-control" id="date_naiss" name="date" placeholder="jour/mois/année" required>
-										</fieldset>
-										
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Lieu de Naissance</legend>
-										<input type="text" class="form-control" id="lieu" name="Lieu" placeholder="Safi" required>
-										</fieldset>
-										
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Adresse</legend>
-										<input type="text" class="form-control" id="lieu" name="Lieu" placeholder="N° 11 quartier AMAL1 Safi" required>
-										</fieldset>
-										
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Niveau Scolaire</legend>
-										<input type="text" class="form-control" id="niveau" name="Niveau" placeholder="2ème année Bac" required>
-										</fieldset>
-										
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Série et Option</legend>
-										<input type="text" class="form-control" id="option" name="option" placeholder="SVT" required>
-										</fieldset>
-										
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Etablissement</legend>
-										<input type="text" class="form-control" id="etablissement" name="etablissement" placeholder="AlPHA Newton" required>
-										</fieldset>
-										
-									</div>
-								</div>
-							</div>
-			            </section>
-						<!-- SECTION 2 -->
-			            <h2>
-			            	<p class="step-icon"><span>2</span></p>
-			            	<span class="step-text">Informations Médicaux</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading"></h3>
-									<p></p>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<div class="plan-total">
-										<span class="plan-title">Suivez-vous un traitement pour une maladie spécifique? </span><br><br>
-										<select class="form-control">
-											<option value="oui">oui</option>
-											<option value="non">non</option>
-										</select>
-										</div>
-										
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<div class="plan-total">
-										<span class="plan-title">Souffrez-vous d'asthme ou d'essoufflement?  </span><br><br>
-										<select class="form-control">
-											<option value="oui">oui</option>
-											<option value="non">non</option>
-										</select>
-										</div>
-										
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<div class="plan-total">
-										<span class="plan-title">Souffrez-vous d'une mauvaise vue?   </span><br><br>
-										<select class="form-control" >
-											<option value="oui">oui</option>
-											<option value="non">non</option>
-										</select>
-										</div>
-										
-									</div>
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<div class="plan-total">
-										<span class="plan-title">Souffrez-vous d'une mauvaise audition?  </span><br><br>
-										<select class="form-control">
-											<option value="oui">oui</option>
-											<option value="non">non</option>
-										</select>
-										</div>
-										
-									</div>
-								</div>
-								
-							</div>
-			            </section>
-			            <!-- SECTION 3 -->
-			            <h2>
-			            	<p class="step-icon"><span>3</span></p>
-			            	<span class="step-text">Responsables Légaux</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading"></h3>
-									<p></p>
-								</div>
-								<div class="form-row">
-									<div class="form-holder">
-										<fieldset>
-											<legend>Nom de Responsable</legend>
-											<input type="text" class="form-control" id="first-name" name="first-name" placeholder=" Nom de Responsable" required>
-										</fieldset>
-									</div>
-									<div class="form-holder">
-										<fieldset>
-											<legend>Prénom de Responsable</legend>
-											<input type="text" class="form-control" id="last-name" name="last-name" placeholder="Prénom de Responsable" required>
-										</fieldset>
-									</div>
-								</div>
-								
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Courriel</legend>
-											<input type="text" name="your_email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" required>
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Téléphone</legend>
-											<input type="text" class="form-control" id="phone" name="phone" placeholder="+21267891011112" required>
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Profession</legend>
-											<input type="text" class="form-control" id="Profession" name="Profession" placeholder="Médecin" required>
-										</fieldset>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<fieldset>
-											<legend>Adresse</legend>
-											<input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="N° 11 quartier AMAL1 Safi" required>
-										</fieldset>
-									</div>
-								</div>
-							</div>
-						</section>
-						<h2>
-			            	<p class="step-icon"><span>4</span></p>
-			            	<span class="step-text">Matières de Soutien</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="wizard-header">
-									<h3 class="heading"></h3>
-									<p>Les Matières de Soutien choisi :</p>
-								</div>
-								        <div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><br>
-										<label> Mathématique</label><br><br></div>
-										<div class="form-row">
 
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Physique</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Science naturel</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Science d'ingénieur</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Science Economie</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Comptabilité</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Philosophie</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Francais</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Anglais</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Langue arabe</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Histoire et Géographie</label><br><br></div>
-										<div class="form-row">
-										<input type="checkbox" id="matiere" name="maths" value="Maths"><label for="vehicle1"> Education Islamique</label><br></div>
-										
-										
-									
-											
-				                		
-									
-								</div>
-							
-								
-								
-								
-							</div>
-			            </section>
-		        	</div>
-		        </form>
+<nav class="navbar navbar-expand-lg " >
+<a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150" width="700"/> </a>
+</nav>
+  <meta charset="utf-8">
+  <title>Formulaire Etudiant</title>
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Font-->
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('/css/opensans-font.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
+  <!-- Main Style Css -->
+  <link rel="stylesheet" href="{{URL::asset('/css/style.css')}}"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Font-->
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('/css/montserrat-font.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
+ 
+
+<div class="page-content">
+	<div class="form-v10-content mb-1 mt-5">
+		<form class="form-detail" action="#" method="post" id="myform">
+			<div class="form-left">
+				<h2>Informations Personnelles</h2>
+				
+				<div class="form-group">
+					<div class="form-row form-row-1">
+						<input type="text" name="first_name" id="first_name" class="input-text" placeholder="Nom" required>
+					</div>
+					<div class="form-row form-row-2">
+						<input type="text" name="last_name" id="last_name" class="input-text" placeholder="Prénom" required>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Courriel" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Téléphone" required>
+				</div>
+				<div class="form-row">
+					<input type="date" name="company" class="company" id="company" placeholder="Date de Naissance" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Lieu de Naissance" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Adresse Actuelle" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Niveau Scolaire" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Option" required>
+				</div>
+			
 			</div>
+			<div class="form-right">
+				<h2>Informations Médicaux</h2>
+				
+			
+				<div class="form-row">
+					<h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+					<select name="country">
+						<option value="Oui">choisissez votre réponse</option>
+						<option value="Oui">Oui</option>
+						<option value="Non">Non</option>
+						
+					</select>
+					
+				</div>
+				<div class="form-row">
+					<h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+					<select name="country">
+						<option value="Oui">choisissez votre réponse</option>
+						<option value="Oui">Oui</option>
+						<option value="Non">Non</option>
+						
+					</select>
+					
+				</div>
+				<div class="form-row">
+					<h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+					<select name="country">
+						<option value="Oui">choisissez votre réponse</option>
+						<option value="Oui">Oui</option>
+						<option value="Non">Non</option>
+						
+					</select>
+					
+				</div>
+				<div class="form-row">
+					<h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+					<select name="country">
+						<option value="Oui">choisissez votre réponse</option>
+						<option value="Oui">Oui</option>
+						<option value="Non">Non</option>
+						
+					</select>
+					
+				</div>
+				
+				
+			</div>
+
 		</div>
+	</form>
+</div>
+
+			<div class="page-content" >
+				<div class="form-v10-content mt-0">
+					<form class="form-detail" action="#" method="post" id="myform">
+						
+			<div class="form-left">
+				<h2>Matière de Soutien</h2>
+				
+							
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check1" checked>
+        <label class="custom-control-label" for="check1">Mathématique</label>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check2">
+        <label class="custom-control-label" for="check2">Physique</label>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check3" checked>
+        <label class="custom-control-label" for="check3">naturel Science</label>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check4" checked>
+        <label class="custom-control-label" for="check4">Science d’ingénieur</label>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check5">
+        <label class="custom-control-label" for="check5">Economie</label>
+      </div>
+	</li>
+	<li class="list-group-item">
+		<!-- Default checked -->
+		<div class="custom-control custom-checkbox">
+		  <input type="checkbox" class="custom-control-input" id="check6">
+		  <label class="custom-control-label" for="check6">Comptabilité</label>
+		</div>
+	  </li>
+	  <li class="list-group-item">
+		<!-- Default checked -->
+		<div class="custom-control custom-checkbox">
+		  <input type="checkbox" class="custom-control-input" id="check7">
+		  <label class="custom-control-label" for="check7">Philosophie</label>
+		</div>
+	  </li>
+	  <li class="list-group-item">
+		<!-- Default checked -->
+		<div class="custom-control custom-checkbox">
+		  <input type="checkbox" class="custom-control-input" id="check8">
+		  <label class="custom-control-label" for="check8">Français</label>
+		</div>
+	  </li>
+	  <li class="list-group-item">
+		<!-- Default checked -->
+		<div class="custom-control custom-checkbox">
+		  <input type="checkbox" class="custom-control-input" id="check9">
+		  <label class="custom-control-label" for="check9">Anglais</label>
+		</div>
+	  </li>
+	  <li class="list-group-item">
+		<!-- Default checked -->
+		<div class="custom-control custom-checkbox">
+		  <input type="checkbox" class="custom-control-input" id="check10">
+		  <label class="custom-control-label" for="check10">arabe Langue</label>
+		</div>
+	  </li>
+	  <li class="list-group-item">
+		<!-- Default checked -->
+		<div class="custom-control custom-checkbox">
+		  <input type="checkbox" class="custom-control-input" id="check11">
+		  <label class="custom-control-label" for="check11">Histoire et Géographie</label>
+		</div>
+	  </li>
+  </ul>
+		
+
+				
+				
+				
+			
+			</div>
+			<div class="form-right">
+				<h2>Résponsables Légeaux</h2>
+
+				<div class="form-group">
+					<div class="form-row form-row-1">
+						<input type="text" name="first_name" id="first_name" class="input-text" placeholder="Nom de Responsable" required>
+					</div>
+					<div class="form-row form-row-2">
+						<input type="text" name="last_name" id="last_name" class="input-text" placeholder="Prénom de Responsable" required>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Courriel" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Téléphone" required>
+				</div>
+				
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Profession" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="company" class="company" id="company" placeholder="Adresse Actuelle" required>
+					
+				</div>
+
+		
+				
+				
+				
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Envoyer">
+				</div>
+			</div>
+		</form>
 	</div>
+</div>
+
 
     @endsection

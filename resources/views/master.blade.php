@@ -15,6 +15,10 @@
     <!-- ***************************** -->
 
     <meta charset="utf-8"/>
+    <script src="{{URL::asset('/js/jquery-3.3.1.min.js')}}"></script>
+	<script src="{{URL::asset('/js/jquery.steps.js')}}"></script>
+	<script src="{{URL::asset('/js/main.js')}}"></script>
+
 
     <!-- Mobile Specific Metas -->
     <meta

@@ -18,7 +18,7 @@ class CreateSubjectsStudentsTable extends Migration
             $table->unsignedBigInteger("etudiant_id");
             $table->unsignedBigInteger("matiere_id");
             $table->foreign("etudiant_id")->references("id")->on("etudiants")->onDelete("cascade");
-            $table->foreign("matiere_id")->references("id")->on("matieres");
+            $table->foreign("matiere_id")->references("id")->on("matieres")->onDelete("cascade");
             $table->timestamps();
         });
     }

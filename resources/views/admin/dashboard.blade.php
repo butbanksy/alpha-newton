@@ -2,26 +2,53 @@
 
 @section("content")
     <div class="container">
-        <div class="d-flex justify-content-center col-sm-12 col-md-12">
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($etudiants as $etudiant)
-                    <tr>
-                        <th scope="row">{{$etudiant->id}}</th>
-                        <td>{{$etudiant->nom}}</td>
-                        <td>{{$etudiant->prenom}}</td>
-                        <td>{{$etudiant->etablissement}}</td>
-                    </tr>
-                @endforeach()
-                </tbody>
-            @endsection()
+            <div class="row justify-content-center">
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img-top p-5" src="{{asset('/images/students.png')}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Nombre d'étudiants inscrits</h5>
+                            <h4 class="text-center">{{count($etudiants) }}</h4>
+                            <br/>
+                            <a href="/fr/admin/students" class="btn btn-primary">Voir les étudiants inscrits</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img-top p-5" src="{{asset('/images/teachers.png')}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Nombre de professeurs inscrits</h5>
+                            <h4 class="text-center">{{count($professeurs)}}</h4>
+                            <br/>
+                            <a href="/fr/admin/professeurs" class="btn btn-primary">Voir les professeurs inscrits</a>
+                        </div>
+                    </div>
+                </div>
+
+
         </div>
+    <!--
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">ID Etudiant</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Etablissement</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($etudiants as $etudiant)
+        <tr>
+            <th scope="row">{{$etudiant->id}}</th>
+                    <td>{{$etudiant->nom}}</td>
+                    <td>{{$etudiant->prenom}}</td>
+                    <td>{{$etudiant->etablissement}}</td>
+                </tr>
+            @endforeach()
+        </tbody> -->
+        @endsection()
+    </div>
     </div>

@@ -12,6 +12,8 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-table.min.css') }}">
+
     <!-- ***************************** -->
 
     <meta charset="utf-8"/>
@@ -41,6 +43,9 @@
 
     <!-- Bootstrap core JS -->
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrap-table.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrap-table-fr-FR.js')}}"></script>
+    <script src="{{ asset('js/main.js')}}"></script>
 
 
     <!-- Custom styles for this template -->
@@ -52,6 +57,7 @@
 </head>
 <body>
 <main class="py-4">
+    @include('header')
     @yield('content')
 </main>
 

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Professor;
 use App\Models\Student;
+use App\Models\Subject;
+use Illuminate\Http\Request;
+
 
 class AdminController extends Controller
 {
@@ -44,7 +47,7 @@ class AdminController extends Controller
     {
         Student::destroy($id);
 
-        return redirect("/fr/admin/students")->with(["message"=>"Etudiant(e) supprimé(e) avec succès"]);
+        return redirect("/fr/admin/students")->with(["message" => "Etudiant(e) supprimé(e) avec succès"]);
     }
 
 
@@ -67,6 +70,45 @@ class AdminController extends Controller
     {
         Professor::destroy($id);
 
-        return redirect("/fr/admin/professeurs")->with(["message"=>"Professeur supprimé(e) avec succès"]);
+        return redirect("/fr/admin/professeurs")->with(["message" => "Professeur supprimé(e) avec succès"]);
+    }
+
+    // Subjects
+
+    public function showSubjects()
+    {
+        $subjects = Subject::all();
+        return view("/admin/subjects/subjects", ["subjects" => $subjects]);
+    }
+
+    public function storeSubject(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nom' => 'required|min:3|max:30',
+            'prix' => 'required|numeric']);
+
+        Subject::create($request->all());
+
+        return redirect("/fr/admin/subjects")->with(["message" => "Matière ajoutée avec succès"]);
+
+    }
+
+    public function addSubject(Request $request)
+    {
+        return view('admin/subjects/add-subject');
+    }
+
+    public function modifySubject(Request $request, $locale, $id){
+        $subject = Subject::find($id);
+
+        return view('admin/subjects/modify-subject', ["subject"=>$subject]);
+    }
+
+    public function deleteSubject($locale, $id)
+    {
+        Subject::destroy($id);
+
+        return redirect("/fr/admin/subjects")->with(["message" => "Matière supprimée avec succès"]);
+
     }
 }

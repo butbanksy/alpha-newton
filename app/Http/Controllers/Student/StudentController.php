@@ -50,10 +50,16 @@ class StudentController extends Controller
              ]);
         } 
          
-        */    
+        */   
+        
+        $student = Student::create([
+            "personne_id" => $person->id,
+            "nouvel_etudiant" => 1, 
+            "redoublant" => 0,
+        ]);
         
         $responsable = Responsable::create([
-            "etudiant_id" => $person->id,
+            "etudiant_id" => $student->id,
             "prenom" => $request->first_name,
             "nom" => $request->last_name,
             "profession" => $request->profession,
@@ -62,7 +68,7 @@ class StudentController extends Controller
             "email" => $request->email,
         ]);
 
-        $pdf = PDF::loadView('pdf.professor',
+        $pdf = PDF::loadView('pdf.student',
             ["data" => $professor],
             ['default_font' => 'dejavusans']);
         return $pdf->stream('pdf');

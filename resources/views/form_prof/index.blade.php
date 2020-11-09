@@ -33,93 +33,93 @@
                     @csrf
 
                 <div class="form-left">
-                    <h2>Informations Personnelles</h2>
+                    <h2> {{__('messages.informations_personnelles')}}</h2>
                     
                     <div class="form-group">
                         <div class="form-row form-row-1">
-                            <input type="text" name="prenom" id="first_name" class="input-text" placeholder="Nom" required>
+                            <input type="text" value="{{old('prenom')}}" name="prenom" id="first_name" class="input-text" placeholder="{{__('messages.prenom')}}" required>
                         </div>
                         <div class="form-row form-row-2">
-                            <input type="text" name="nom" id="last_name" class="input-text" placeholder="Prénom" required>
+                            <input type="text" value="{{old('nom')}}" name="nom" id="last_name" class="input-text" placeholder="{{__('messages.nom')}}" required>
                         </div>
                     </div>
                     <div class="form-row">
-                        <input type="date" name="date_naissance" class="company" id="company" placeholder="Date de Naissance" required>
+                        <input type="date" name="date_naissance" class="company" id="company" placeholder="{{__('messages.date_naissance')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" name="lieu_naissance" class="company" id="company" placeholder="Lieu de Naissance" required>
+                        <input type="text" value="{{old('lieu_naissance')}}"  name="lieu_naissance" class="company" id="company" placeholder="{{__('messages.lieu_naissance')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" name="adresse" class="company" id="company" placeholder="Adresse Actuelle" required>
+                        <input type="text"  value="{{old('adresse')}}" name="adresse" class="company" id="company" placeholder="{{__('messages.adresse')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" name="telephone" class="company" id="company" placeholder="Téléphone" required>
+                        <input type="text"  value="{{old('telephone')}}" name="telephone" class="company" id="company" placeholder="{{__('messages.tel')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" name="email" class="company" id="company" placeholder="Courriel" required>
+                        <input type="text"  value="{{old('email')}}" name="email" class="company" id="company" placeholder="{{__('messages.email')}}" required>
                     </div>
                    
                     
                     
                     
                     <div class="form-row">
-                        <input type="text" name="niveau_scolaire" class="company" id="company" placeholder="Niveau Scolaire" required>
+                        <input type="text"  value="{{old('niveau_scolaire')}}" name="niveau_scolaire" class="company" id="company" placeholder="{{__('messages.niveau_scolaire')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" name="option" class="company" id="company" placeholder="Option" required>
+                        <input type="text"  value="{{old('option')}}" name="option" class="company" id="company" placeholder="{{__('messages.option')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" name="etablissement" class="company" id="company" placeholder="Etablissement" required>
+                        <input type="text"  value="{{old('option')}}" name="etablissement" class="company" id="company" placeholder="{{__('messages.etablissement')}}" required>
                     </div>
                 
                 </div>
                 <div class="form-right">
-                    <h2>Informations Médicaux</h2>
+                    <h2>{{__('messages.informations_medicaux')}} </h2>
                     
                 
                     <div class="form-row">
-                        <h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+                        <h6 style="color: bisque">{{__('messages.maladie_specifique')}}</h6>
                         <select name="maladie_specifique">
-                            <option disabled selected>choisissez votre réponse</option>
-                            <option value="1">Oui</option>
-                            <option value="0">Non</option>
+                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+                            <option value="1">{{__('messages.oui')}}</option>
+                            <option value="0">{{__('messages.non')}}</option>
                             
                         </select>
                         
                     </div>
                     <div class="form-row">
-                        <h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+                        <h6 style="color: bisque">{{__('messages.maladie_respiratoire')}}</h6>
                         <select name="maladie_respiratoire">
-                            <option disabled selected>choisissez votre réponse</option>
-                            <option value="1">Oui</option>
-                            <option value="0">Non</option>
+                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+                            <option value="1">{{__('messages.oui')}}</option>
+                            <option value="0">{{__('messages.non')}}</option>
                             
                         </select>
                         
                     </div>
                     <div class="form-row">
-                        <h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+                        <h6 style="color: bisque">{{__('messages.maladie_vue')}}</h6>
                         <select name="maladie_vue">
-                            <option disabled>choisissez votre réponse</option>
-                            <option value="1">Oui</option>
-                            <option value="0">Non</option>
+                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+                            <option value="1">{{__('messages.oui')}}</option>
+                            <option value="0">{{__('messages.non')}}</option>
                             
                         </select>
                         
                     </div>
                     <div class="form-row">
-                        <h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+                        <h6 style="color: bisque">{{__('messages.maladie_audition')}}</h6>
                         <select name="maladie_audition">
-                            <option disabled selected>choisissez votre réponse</option>
-                            <option value="1">Oui</option>
-                            <option value="0">Non</option>
+                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+                            <option value="1">{{__('messages.oui')}}</option>
+                            <option value="0">{{__('messages.non')}}</option>
                             
                         </select>
                         
                     </div>
                     
                     <div class="form-row-last">
-                        <input type="submit" name="register" class="register" value="Envoyer">
+                        <input type="submit" name="register" class="register" value="{{__('messages.envoyer')}}">
                     </div>
                 </div>
             </form>

@@ -35,86 +35,87 @@
 	<div class="form-v10-content mb-1 mt-5">
 		<div class="form-detail"   id="myform">
 			<div class="form-left">
-				<h2>Informations Personnelles</h2>
+				<h2>{{__('messages.informations_personnelles')}}</h2>
 				
 				<div class="form-group">
 					<div class="form-row form-row-1">
-						<input type="text" name="prenom" id="first_name" class="input-text" placeholder="Nom" required>
+						<input type="text" value="{{old('prenom')}}" name="prenom" id="first_name" class="input-text" placeholder="{{__('messages.prenom')}}" required>
 					</div>
 					<div class="form-row form-row-2">
-						<input type="text" name="nom" id="last_name" class="input-text" placeholder="Prénom" required>
+						<input type="text" value="{{old('nom')}}" name="nom" id="last_name" class="input-text" placeholder="{{__('messages.nom')}}" required>
 					</div>
 				</div>
 				<div class="form-row">
-					<input type="date" name="date_naissance" class="company" id="company" placeholder="Date de Naissance" required>
+					<input type="date" value="{{old('date_naissance')}}" name="date_naissance" class="company" id="company" placeholder="{{__('messages.date_naissance')}}" required>
 				</div>
 				<div class="form-row">
-					<input type="text" name="lieu_naissance" class="company" id="company" placeholder="Lieu de Naissance" required>
+					<input type="text" value="{{old('lieu_naissance')}}" name="lieu_naissance" class="company" id="company" placeholder="{{__('messages.lieu_naissance')}}" required>
 				</div>
 				<div class="form-row">
-					<input type="text" name="adresse" class="company" id="company" placeholder="Adresse Actuelle" required>
+					<input type="text"  value="{{old('adresse')}}" name="adresse" class="company" id="company" placeholder="{{__('messages.adresse')}}" required>
 				</div>
 				<div class="form-row">
-					<input type="text" name="telephone" class="company" id="company" placeholder="Téléphone" required>
+					<input type="text" value="{{old('telephone')}}" name="telephone" class="company" id="company" placeholder="{{__('messages.tel')}}" required>
 				</div>
 				<div class="form-row">
-					<input type="text" name="email" class="company" id="company" placeholder="Courriel" required>
+					<input type="text" value="{{old('email')}}" name="email" class="company" id="company" placeholder="{{__('messages.email')}}" required>
 				</div>
 				
 				
 				
 				
 				<div class="form-row">
-					<input type="text" name="niveau_scolaire" class="company" id="company" placeholder="Niveau Scolaire" required>
+					<input type="text" value="{{old('niveau_scolaire')}}" name="niveau_scolaire" class="company" id="company" placeholder="{{__('messages.niveau_scolaire')}}" required>
 				</div>
 				<div class="form-row">
-					<input type="text" name="option" class="company" id="company" placeholder="Option" required>
+					<input type="text" value="{{old('option')}}" name="option" class="company" id="company" placeholder="{{__('messages.option')}}" required>
 				</div>
 				<div class="form-row">
-					<input type="text" name="etablissement" class="company" id="company" placeholder="Etablissement" required>
+					<input type="text"  value="{{old('etablissement')}}" name="etablissement" class="company" id="company" placeholder="{{__('messages.etablissement')}}" required>
 				</div>
+				
 			
 			</div>
 			<div class="form-right">
-				<h2>Informations Médicaux</h2>
+				<h2>{{__('messages.informations_medicaux')}}</h2>
 				
 			
 				<div class="form-row">
-					<h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+					<h6 style="color: bisque">{{__('messages.maladie_specifique')}}</h6>
 					<select name="maladie_specifique">
-						<option disabled selected>choisissez votre réponse</option>
-                            <option value="1">Oui</option>
-                            <option value="0">Non</option>
+						<option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+						<option value="1">{{__('messages.oui')}}</option>
+						<option value="0">{{__('messages.non')}}</option>
 						
 					</select>
 					
 				</div>
 				<div class="form-row">
-					<h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+					<h6 style="color: bisque">{{__('messages.maladie_respiratoire')}}</h6>
 					<select name="maladie_respiratoire">
-						<option disabled selected>choisissez votre réponse</option>
-                            <option value="1">Oui</option>
-                            <option value="0">Non</option>
+						<option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+						<option value="1">{{__('messages.oui')}}</option>
+						<option value="0">{{__('messages.non')}}</option>
 						
 					</select>
 					
 				</div>
 				<div class="form-row">
-					<h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+					<h6 style="color: bisque">{{__('messages.maladie_vue')}}</h6>
 					<select name="maladie_vue">
-						<option disabled selected>choisissez votre réponse</option>
-                            <option value="1">Oui</option>
-                            <option value="0">Non</option>
+						<option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+						<option value="1">{{__('messages.oui')}}</option>
+						<option value="0">{{__('messages.non')}}</option>
 						
 					</select>
 					
 				</div>
 				<div class="form-row">
-					<h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
+					<h6 style="color: bisque">{{__('messages.maladie_audition')}}</h6>
 					<select name="maladie_audition">
-						<option disabled selected>choisissez votre réponse</option>
-                            <option value="1">Oui</option>
-                            <option value="0">Non</option>
+						<option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+						<option value="1">{{__('messages.oui')}}</option>
+						<option value="0">{{__('messages.non')}}</option>
 						
 					</select>
 					
@@ -132,7 +133,7 @@
 					<div class="form-detail" id="myform">
 						
 			<div class="form-left">
-				<h2>Matière de Soutien</h2>
+				<h2>{{__('messages.matiere_de_soutien')}}</h2>
 				
 							
   <ul class="list-group list-group-flush">
@@ -140,77 +141,77 @@
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="check1" name="matiere_id[]" value="1" checked>
-        <label class="custom-control-label" for="check1" >Mathématique</label>
+        <label class="custom-control-label" for="check1" >{{__('messages.math')}}</label>
       </div>
     </li>
     <li class="list-group-item">
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="check2" name="matiere_id[]" value="2">
-        <label class="custom-control-label" for="check2">Physique</label>
+        <label class="custom-control-label" for="check2">{{__('messages.physique')}}</label>
       </div>
     </li>
     <li class="list-group-item">
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="check3" checked name="matiere_id[]" value="3">
-        <label class="custom-control-label" for="check3">naturel Science</label>
+        <label class="custom-control-label" for="check3">{{__('messages.naturel_science')}}</label>
       </div>
     </li>
     <li class="list-group-item">
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="check4" checked name="matiere_id[]" value="4">
-        <label class="custom-control-label" for="check4">Science d’ingénieur</label>
+        <label class="custom-control-label" for="check4">{{__('messages.science_ing')}}</label>
       </div>
     </li>
     <li class="list-group-item">
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="check5" name="matiere_id[]" value="5">
-        <label class="custom-control-label" for="check5">Economie</label>
+        <label class="custom-control-label" for="check5">{{__('messages.eco')}}</label>
       </div>
 	</li>
 	<li class="list-group-item">
 		<!-- Default checked -->
 		<div class="custom-control custom-checkbox">
 		  <input type="checkbox" class="custom-control-input" id="check6" name="matiere_id[]" value="6">
-		  <label class="custom-control-label" for="check6">Comptabilité</label>
+		  <label class="custom-control-label" for="check6">{{__('messages.comptabilite')}}</label>
 		</div>
 	  </li>
 	  <li class="list-group-item">
 		<!-- Default checked -->
 		<div class="custom-control custom-checkbox">
 		  <input type="checkbox" class="custom-control-input" id="check7" name="matiere_id[]" value="7">
-		  <label class="custom-control-label" for="check7">Philosophie</label>
+		  <label class="custom-control-label" for="check7">{{__('messages.philo')}}</label>
 		</div>
 	  </li>
 	  <li class="list-group-item">
 		<!-- Default checked -->
 		<div class="custom-control custom-checkbox">
 		  <input type="checkbox" class="custom-control-input" id="check8" name="matiere_id[]" value="8">
-		  <label class="custom-control-label" for="check8">Français</label>
+		  <label class="custom-control-label" for="check8">{{__('messages.fr')}}</label>
 		</div>
 	  </li>
 	  <li class="list-group-item">
 		<!-- Default checked -->
 		<div class="custom-control custom-checkbox">
 		  <input type="checkbox" class="custom-control-input" id="check9" name="matiere_id[]" value="9">
-		  <label class="custom-control-label" for="check9">Anglais</label>
+		  <label class="custom-control-label" for="check9">{{__('messages.ang')}}</label>
 		</div>
 	  </li>
 	  <li class="list-group-item">
 		<!-- Default checked -->
 		<div class="custom-control custom-checkbox">
 		  <input type="checkbox" class="custom-control-input" id="check10" name="matiere_id[]" value="10">
-		  <label class="custom-control-label" for="check10">arabe Langue</label>
+		  <label class="custom-control-label" for="check10">{{__('messages.ar')}}</label>
 		</div>
 	  </li>
 	  <li class="list-group-item">
 		<!-- Default checked -->
 		<div class="custom-control custom-checkbox">
 		  <input type="checkbox" class="custom-control-input" id="check11" name="matiere_id[]" value="11">
-		  <label class="custom-control-label" for="check11">Histoire et Géographie</label>
+		  <label class="custom-control-label" for="check11">{{__('messages.hg')}}</label>
 		</div>
 	  </li>
   </ul>		
@@ -218,29 +219,29 @@
 			
 			</div>
 			<div class="form-right">
-				<h2>Responsables Légaux</h2>
+				<h2>{{__('messages.responsables_legaux')}}</h2>
 
 				<div class="form-group">
 					<div class="form-row form-row-1">
-						<input type="text" name="first_name" id="first_name" class="input-text" placeholder="Nom de Responsable" required>
+						<input type="text" value="{{old('first_name')}}" name="first_name" id="first_name" class="input-text" placeholder="{{__('messages.nom_resp')}}" required>
 					</div>
 					<div class="form-row form-row-2">
-						<input type="text" name="last_name" id="last_name" class="input-text" placeholder="Prénom de Responsable" required>
+						<input type="text"   value="{{old('last_name')}}" name="last_name" id="last_name" class="input-text" placeholder="{{__('messages.prenom_resp')}}" required>
 					</div>
 				</div>
 				
 				<div class="form-row">
-					<input type="text" name="email" class="company" id="company" placeholder="Courriel" required>
+					<input type="text"  value="{{old('email')}}" name="email" class="company" id="company" placeholder="{{__('messages.email')}}" required>
 				</div>
 				<div class="form-row">
-					<input type="text" name="telephone" class="company" id="company" placeholder="Téléphone" required>
+					<input type="text"  value="{{old('telephone')}}" name="telephone" class="company" id="company" placeholder="{{__('messages.tel')}}" required>
 				</div>
 				
 				<div class="form-row">
-					<input type="text" name="profession" class="company" id="company" placeholder="Profession" required>
+					<input type="text"  value="{{old('profession')}}"  name="profession" class="company" id="company" placeholder="{{__('messages.profession')}}" required>
 				</div>
 				<div class="form-row">
-					<input type="text" name="adresse" class="company" id="company" placeholder="Adresse Actuelle" required>
+					<input type="text"  value="{{old('adresse')}}"  name="adresse" class="company" id="company" placeholder="{{__('messages.adresse')}} " required>
 					
 				</div>
 
@@ -249,7 +250,7 @@
 				
 				
 				<div class="form-row-last">
-					<input type="submit" name="register" class="register" value="Envoyer">
+					<input type="submit" name="register" class="register" value="{{__('messages.envoyer')}}">
 				</div>
 			</div>
 		</div>

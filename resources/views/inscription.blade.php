@@ -1,9 +1,12 @@
 @extends('master')
 
 @section("content")
+<nav class="navbar navbar-expand-lg " >
+    <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150" width="700"/> </a>
+    </nav>
     <div class="container">
         <div class="text-center">
-            <h4>
+            <h4><br><br>
                 {{__('messages.type_personne')}}
             </h4>
         </div>

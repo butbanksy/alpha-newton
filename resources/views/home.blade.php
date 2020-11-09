@@ -1,10 +1,13 @@
-@extends('layouts.app')
+@extends('master')
 
 
 @section('content')
+<nav class="navbar navbar-expand-lg " >
+    <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150" width="700"/> </a>
+    </nav>
     <div class="container">
         <div class="col-sm-12">
-            <div class="text-center">
+            <div class="text-center"><br><br>
                 <h4>Veuillez séléctionner une langue</h4>
                 <br>
                 <h4 style="direction: rtl">المرجو اختيار اللغة</h4>

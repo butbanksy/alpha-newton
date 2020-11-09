@@ -68,6 +68,10 @@ class HomeController extends Controller
     }
 
     public function test(){
-        $etudiant = Student::where('id', 1)->with("subjects")->first();
+        $etudiant = Student::where('id', 3)->with("subjects")->first();
+        $etudiant->subjects()->attach([2,6,7]);
+        $etudiant->save();
+
+        dd($etudiant);
     }
 }

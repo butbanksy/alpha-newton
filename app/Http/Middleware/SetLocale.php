@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
 
 class SetLocale
 {
@@ -15,9 +14,10 @@ class SetLocale
      * @param string $lang
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
-        app()->setlocale($request->language);
+        $locale = explode("/", $request->getPathInfo());
+        app()->setLocale($locale[1]);
         return $next($request);
     }
 }

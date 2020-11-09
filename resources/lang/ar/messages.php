@@ -5,4 +5,5 @@ return [
     "etudiant" => "تلميذ(ة)",
     "professeur" => "أستاذ(ة)",
     "informations_personnelles" => "المعلومات الشخصية",
+
 ];

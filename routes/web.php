@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Professor\ProfessorController;
+use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::redirect('/admin', '/fr/admin');
 Route::group(['prefix' => '{language}'], function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::get('/header', [HomeController::class, 'header']);
+    Route::get('/test', [HomeController::class, 'test']);
 
     //Admin routes
     Route::get('/admin', [AdminController::class, 'index']);
@@ -44,8 +46,13 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/inscription/professeur', [ProfessorController::class, 'index']);
     Route::post('/inscription/professeur', [ProfessorController::class, 'store']);
 
+    //Student routes
+    Route::get('/inscription/etudiant', [StudentController::class, 'index']);
+    Route::post('/inscription/etudiant', [StudentController::class, 'store']);
+
 
     Route::get('/pdf', [ProfessorController::class, 'pdf']);
+   
 
     Auth::routes();
 });

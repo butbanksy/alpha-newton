@@ -66,4 +66,8 @@ class HomeController extends Controller
     {
         return view("inscription");
     }
+
+    public function test(){
+        $etudiant = Student::where('id', 1)->with("subjects")->first();
+    }
 }

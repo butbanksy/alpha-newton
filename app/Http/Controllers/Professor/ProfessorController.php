@@ -20,7 +20,7 @@ class ProfessorController extends Controller
         $validatedData = $request->validate([
             'prenom' => 'required|min:3|max:30',
             'nom' => 'required|min:3|max:30',
-            'date' => '',
+            'date_naissance' => '',
             'lieu_naissance' => 'required|min:2|max:40',
             'adresse' => 'required|min:3',
             'telephone' => 'required|numeric',
@@ -42,7 +42,7 @@ class ProfessorController extends Controller
         $pdf = PDF::loadView('pdf.professor',
             ["data" => $professor],
             ['default_font' => 'dejavusans']);
-        return $pdf->stream('inscription.pdf');
+        return $pdf->stream('pdf');
     }
 
     public function pdf()

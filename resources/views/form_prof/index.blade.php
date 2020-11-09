@@ -29,39 +29,47 @@
     
     <div class="page-content">
         <div class="form-v10-content mb-50 mt-5">
-            <form class="form-detail" action="#" method="post" id="myform">
+            <form class="form-detail"  method="post" action="{{url('{language}/inscription/professeur')}}" id="myform">
+                    @csrf
+
                 <div class="form-left">
                     <h2>Informations Personnelles</h2>
                     
                     <div class="form-group">
                         <div class="form-row form-row-1">
-                            <input type="text" name="first_name" id="first_name" class="input-text" placeholder="Nom" required>
+                            <input type="text" name="prenom" id="first_name" class="input-text" placeholder="Nom" required>
                         </div>
                         <div class="form-row form-row-2">
-                            <input type="text" name="last_name" id="last_name" class="input-text" placeholder="Prénom" required>
+                            <input type="text" name="nom" id="last_name" class="input-text" placeholder="Prénom" required>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <input type="date" name="date_naissance" class="company" id="company" placeholder="Date de Naissance" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="lieu_naissance" class="company" id="company" placeholder="Lieu de Naissance" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="adresse" class="company" id="company" placeholder="Adresse Actuelle" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="telephone" class="company" id="company" placeholder="Téléphone" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="email" class="company" id="company" placeholder="Courriel" required>
+                    </div>
+                   
+                    
+                    
                     
                     <div class="form-row">
-                        <input type="text" name="company" class="company" id="company" placeholder="Courriel" required>
+                        <input type="text" name="niveau_scolaire" class="company" id="company" placeholder="Niveau Scolaire" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" name="company" class="company" id="company" placeholder="Téléphone" required>
+                        <input type="text" name="option" class="company" id="company" placeholder="Option" required>
                     </div>
                     <div class="form-row">
-                        <input type="date" name="company" class="company" id="company" placeholder="Date de Naissance" required>
-                    </div>
-                    <div class="form-row">
-                        <input type="text" name="company" class="company" id="company" placeholder="Lieu de Naissance" required>
-                    </div>
-                    <div class="form-row">
-                        <input type="text" name="company" class="company" id="company" placeholder="Adresse Actuelle" required>
-                    </div>
-                    <div class="form-row">
-                        <input type="text" name="company" class="company" id="company" placeholder="Niveau Scolaire" required>
-                    </div>
-                    <div class="form-row">
-                        <input type="text" name="company" class="company" id="company" placeholder="Option" required>
+                        <input type="text" name="etablissement" class="company" id="company" placeholder="Etablissement" required>
                     </div>
                 
                 </div>
@@ -71,40 +79,40 @@
                 
                     <div class="form-row">
                         <h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
-                        <select name="country">
-                            <option value="Oui">choisissez votre réponse</option>
-                            <option value="Oui">Oui</option>
-                            <option value="Non">Non</option>
+                        <select name="maladie_specifique">
+                            <option disabled selected>choisissez votre réponse</option>
+                            <option value="1">Oui</option>
+                            <option value="0">Non</option>
                             
                         </select>
                         
                     </div>
                     <div class="form-row">
                         <h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
-                        <select name="country">
-                            <option value="Oui">choisissez votre réponse</option>
-                            <option value="Oui">Oui</option>
-                            <option value="Non">Non</option>
+                        <select name="maladie_respiratoire">
+                            <option disabled selected>choisissez votre réponse</option>
+                            <option value="1">Oui</option>
+                            <option value="0">Non</option>
                             
                         </select>
                         
                     </div>
                     <div class="form-row">
                         <h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
-                        <select name="country">
-                            <option value="Oui">choisissez votre réponse</option>
-                            <option value="Oui">Oui</option>
-                            <option value="Non">Non</option>
+                        <select name="maladie_vue">
+                            <option disabled>choisissez votre réponse</option>
+                            <option value="1">Oui</option>
+                            <option value="0">Non</option>
                             
                         </select>
                         
                     </div>
                     <div class="form-row">
                         <h6 style="color: bisque">Suivez-vous un traitement pour une maladie spécifique?</h6>
-                        <select name="country">
-                            <option value="Oui">choisissez votre réponse</option>
-                            <option value="Oui">Oui</option>
-                            <option value="Non">Non</option>
+                        <select name="maladie_audition">
+                            <option disabled selected>choisissez votre réponse</option>
+                            <option value="1">Oui</option>
+                            <option value="0">Non</option>
                             
                         </select>
                         

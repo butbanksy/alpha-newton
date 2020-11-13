@@ -1,8 +1,9 @@
 @extends('../master')
 
 @section("content")
-<nav class="navbar navbar-expand-lg " >
-    <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150" width="700"/> </a>
+    <nav class="navbar navbar-expand-lg ">
+        <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150"
+                                                           width="700"/> </a>
     </nav>
     <div class="container">
         <div class="row justify-content-center">
@@ -29,26 +30,20 @@
                     </div>
                 </div>
             </div>
-            <br/>
-            <div class="container p-5">
-                <div class="row justify-content-center">
-                    <div class="col-sm-3">
-                        <a href="/fr/admin/subjects">
-                        <div class="btn btn-success">
-                            Gérer les matières
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="btn btn-info">
-                            Imprimer la fiche d'absence
-                        </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top p-5" src="{{asset('/images/subject.png')}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de matières de soutien</h5>
+                        <h4 class="text-center">{{count($matieres)}}</h4>
+                        <br/>
+                        <a href="/fr/admin/subjects" class="btn btn-primary">Gérer la liste des matières</a>
                     </div>
                 </div>
             </div>
-
-
+            <br/>
         </div>
+    </div>
     <!--
         <table class="table table-striped table-hover table-bordered">
             <thead>
@@ -69,6 +64,6 @@
                 </tr>
             @endforeach()
         </tbody> -->
-        @endsection()
+    @endsection()
     </div>
     </div>

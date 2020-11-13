@@ -39,6 +39,8 @@ class ProfessorController extends Controller
             "personne_id" => $person->id
         ]);
 
+        return view("success");
+
         $pdf = PDF::loadView('pdf.professor',
             ["data" => $professor],
             ['default_font' => 'dejavusans']);

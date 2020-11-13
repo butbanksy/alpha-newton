@@ -15,7 +15,7 @@
             <div class="w-100"></div>
 
 
-            <form method="POST" action="/fr/admin/subject/modify" class="border border-light p-5">
+            <form method="POST" action="/fr/admin/subject/edit/{{$subject->id}}" class="border border-light p-5">
                 @csrf
                 @method('PUT')
                 <p class="h4 mb-4 text-center">Modifier une matière</p>

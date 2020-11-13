@@ -2,7 +2,19 @@
 @section("content")
     <div class="container">
         <div class="row">
-
+            @if(session("message"))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session("message")}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+                <a href="/fr/admin/">
+                    <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+                        Revenir à l'accueil
+                    </div>
+                </a>
             <table
                 id="table"
                 data-toggle="table"

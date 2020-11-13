@@ -21,7 +21,8 @@ class AdminController extends Controller
     {
         $etudiants = Student::with("person")->get();
         $professeurs = Professor::with("person")->get();
-        return view("admin/dashboard", ["etudiants" => $etudiants, "professeurs" => $professeurs]);
+        $matieres = Subject::all();
+        return view("admin/dashboard", ["etudiants" => $etudiants, "professeurs" => $professeurs, "matieres" => $matieres]);
     }
 
     public function login()
@@ -93,15 +94,34 @@ class AdminController extends Controller
 
     }
 
+    public function putSubject(Request $request, $locale, $id)
+    {
+        $validatedData = $request->validate([
+            'nom' => 'required|min:3|max:30',
+            'prix' => 'required|numeric']);
+
+        $matiere = Subject::find($id);
+
+        $matiere->nom = $request->input('nom');
+        $matiere->prix = $request->input('prix');
+
+        $matiere->save();
+
+        return redirect("/fr/admin/subjects")->with(["message" => "Matière modifiée avec succès"]);
+
+
+    }
+
     public function addSubject(Request $request)
     {
         return view('admin/subjects/add-subject');
     }
 
-    public function modifySubject(Request $request, $locale, $id){
+    public function modifySubject(Request $request, $locale, $id)
+    {
         $subject = Subject::find($id);
 
-        return view('admin/subjects/modify-subject', ["subject"=>$subject]);
+        return view('admin/subjects/modify-subject', ["subject" => $subject]);
     }
 
     public function deleteSubject($locale, $id)

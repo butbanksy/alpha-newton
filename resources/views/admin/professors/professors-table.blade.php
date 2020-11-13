@@ -12,6 +12,12 @@
                 </div>
             @endif
 
+                <a href="/fr/admin/">
+                    <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+                        Revenir à l'accueil
+                    </div>
+                </a>
+
             <table
                 id="table"
                 class="table-responsive"

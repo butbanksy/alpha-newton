@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <h1>Inscription Réussie</h1>
-                    <p>Votre inscription a bien été faite;<br/>Veuillez imprimer le reçu de l'inscription!</p>
+                    <p>Votre inscription a bien été faite;</p>
                 </div>
             </div>
 

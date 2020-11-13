@@ -43,6 +43,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/admin/subject/add', [AdminController::class, 'addSubject']);
     Route::post('/admin/subject/add', [AdminController::class, 'storeSubject']);
     Route::get('/admin/subject/edit/{id}', [AdminController::class, 'modifySubject']);
+    Route::put('/admin/subject/edit/{id}', [AdminController::class, 'putSubject']);
     Route::get('/admin/subject/delete/{id}', [AdminController::class, 'deleteSubject']);
 
 
@@ -58,7 +59,7 @@ Route::group(['prefix' => '{language}'], function () {
 
 
     Route::get('/pdf', [ProfessorController::class, 'pdf']);
-   
+
 
 
     Auth::routes();

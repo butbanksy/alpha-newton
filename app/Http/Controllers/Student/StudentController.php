@@ -24,12 +24,12 @@ class StudentController extends Controller
         $validatedData = $request->validate([
             'prenom' => 'required|min:3|max:30',
             'nom' => 'required|min:3|max:30',
-            'first_name' => 'required|min:3|max:30',
-            'last_name' => 'required|min:3|max:30',
+            'prenom_resp' => 'required|min:3|max:30',
+            'nom_resp' => 'required|min:3|max:30',
             'profession_resp' => 'required|min:3|max:30',
             'adresse_resp' => 'required|min:3',
             'telephone_resp' => 'required|numeric',
-            'date_naissance' => '',
+            'date_naissance' => 'required',
             'lieu_naissance' => 'required|min:2|max:40',
             'adresse' => 'required|min:3',
             'telephone' => 'required|numeric',
@@ -60,19 +60,18 @@ class StudentController extends Controller
 
         $responsable = Responsable::create([
             "etudiant_id" => $etudiant->id,
-            "prenom" => $request->first_name,
-            "nom" => $request->last_name,
+            "prenom" => $request->prenom_resp,
+            "nom" => $request->nom_resp,
             "profession" => $request->profession_resp,
             "adresse" => $request->adresse_resp,
             "telephone" => $request->telephone_resp,
             "email" => $request->email_resp,
         ]);
 
-        $pdf = PDF::loadView('pdf.professor',
+        $pdf = PDF::loadView('pdf.inscription',
             ["data" => $etudiant],
             ['default_font' => 'dejavusans']);
         $pdf->stream('inscription.pdf');
-        return view("success");
     }
 
     public function pdf()

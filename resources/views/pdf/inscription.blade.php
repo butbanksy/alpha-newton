@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Salam</title>
+    <title>Fiche d'inscription</title>
 </head>
 <body style="font-family: 'XB Riyaz',  monospace, sans-serif; direction: rtl">
 إطار خاص بالمؤسسة
@@ -37,8 +37,8 @@
         </li>
     </ul>
 
-    وأوافق على كل أشكال العقوبات التأديبية المتخذة من طرف إدارة المؤسسة في حالة اإلخالل ببنود النظام الداخلي ونظام القسم
-    وكذا الميثاق األخالقي للمؤسسة.
+    وأوافق على كل أشكال العقوبات التأديبية المتخذة من طرف إدارة المؤسسة في حالة الإخلال ببنود النظام الداخلي ونظام القسم
+    وكذا الميثاق الأخلاقي للمؤسسة.
     <br/>
     توقيع التلميذ
 </div>

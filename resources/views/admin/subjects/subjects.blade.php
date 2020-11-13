@@ -2,7 +2,31 @@
 
 @section('content')
     <div class="container">
+        @if(session("message"))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session("message")}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+        <div>
+            <a href="/fr/admin/">
+                <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+                    Revenir à l'accueil
+                </div>
+            </a>
+            <div class="float-right">
+                <a href="/fr/admin/subject/add">
+                <div class="btn btn-primary">
+                    Ajouter une nouvelle matière
+                </div>
+                </a>
+            </div>
+        </div>
+
         <div class="row justify-content-center">
+
             <table
                 id="table"
                 data-toggle="table"
@@ -40,12 +64,6 @@
                 @endforeach()
                 </tbody>
             </table>
-        </div>
-        <div class="container justify-content-center">
-            <div class="btn btn-primary">
-                Ajouter une nouvelle matière
-            </div>
-
         </div>
 
     </div>

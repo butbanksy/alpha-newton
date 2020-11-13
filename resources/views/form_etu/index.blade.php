@@ -14,6 +14,18 @@
         <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150"
                                                            width="700"/> </a>
     </nav>
+    @if ($errors->any())
+        <div class="container">
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
+
     <meta charset="utf-8">
     <title>Formulaire Etudiant</title>
     <!-- Mobile Specific Metas -->
@@ -30,7 +42,7 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset('/css/montserrat-font.css')}}">
     <link rel="stylesheet" type="text/css"
           href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
-    <form action="{{url('{language}/inscription/etudiant')}}" method="post">
+    <form action="/{{$app->getLocale()}}/inscription/etudiant" method="post">
         @csrf
 
         <div class="page-content">

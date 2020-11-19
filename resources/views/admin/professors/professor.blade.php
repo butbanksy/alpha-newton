@@ -66,6 +66,13 @@
                                         style="font-size: 1.5rem; font-weight: bold">{{$professeur->person->nom . " " . $professeur->person->prenom}}</h6>
                                 </div>
 
+                                <div class="pl-2 float-right">
+                                    <a href="/fr/admin/professeur/edit/{{$professeur->id}}">
+                                        <div class="btn btn-info mb-3">Modifier
+                                        </div>
+                                    </a>
+                                </div>
+
                                 <div class="ml-auto">
                                     <input type="button" class="btn btn-primary d-none" id="btnDiscard"
                                            value="Discard Changes"/>
@@ -261,7 +268,8 @@
                             aria-hidden="true">&times;</span>
                     </button>
                     <a href="/fr/admin/professeur/delete/{{$professeur->id}}">
-                    <button type="button" class="btn btn-danger">Oui <span aria-hidden="true">&#10003;</span></button>
+                        <button type="button" class="btn btn-danger">Oui <span aria-hidden="true">&#10003;</span>
+                        </button>
                     </a>
                 </div>
             </div>

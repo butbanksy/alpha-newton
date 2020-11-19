@@ -25,7 +25,7 @@
         @endif
     </div>
     <meta charset="utf-8">
-    <title>Formulaire Professeur</title>
+    <title>Modifier Professeur</title>
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -45,56 +45,65 @@
 
     <div class="page-content">
         <div class="form-v10-content mb-50 mt-5">
-            <form class="form-detail" method="post" action="/{{$app->getLocale()}}/inscription/professeur" id="myform">
-
+            <form class="form-detail" method="post" action="/fr/admin/professeur/edit/{{$professeur->id}}" id="myform">
                 @csrf
+                @method('PUT')
 
                 <div class="form-left">
                     <h2> {{__('messages.informations_personnelles')}}</h2>
 
                     <div class="form-group">
                         <div class="form-row form-row-1">
-                            <input type="text" value="{{old('prenom')}}" name="prenom" id="first_name"
+                            <input type="text" value="{{$professeur->person->prenom}}" name="prenom" id="first_name"
                                    class="input-text" placeholder="{{__('messages.prenom')}}" required>
                         </div>
                         <div class="form-row form-row-2">
-                            <input type="text" value="{{old('nom')}}" name="nom" id="last_name" class="input-text"
+                            <input type="text" value="{{$professeur->person->nom}}" name="nom" id="last_name"
+                                   class="input-text"
                                    placeholder="{{__('messages.nom')}}" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <h6 style="color: black">Date de naissance</h6>
-                        <input type="date" name="date_naissance" value="{{old('date_naissance')}}" class="company" id="company"
+                        <input type="date" name="date_naissance" value="{{$professeur->person->date_naissance}}"
+                               class="company" id="company"
                                placeholder="Date de Naissance" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('lieu_naissance')}}" name="lieu_naissance" class="company"
+                        <input type="text" value="{{$professeur->person->lieu_naissance}}" name="lieu_naissance"
+                               class="company"
                                id="company" placeholder="{{__('messages.lieu_naissance')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('adresse')}}" name="adresse" class="company" id="company"
+                        <input type="text" value="{{$professeur->person->adresse}}" name="adresse" class="company"
+                               id="company"
                                placeholder="{{__('messages.adresse')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('telephone')}}" name="telephone" class="company" id="company"
+                        <input type="text" value="{{$professeur->person->telephone}}" name="telephone" class="company"
+                               id="company"
                                placeholder="{{__('messages.tel')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('email')}}" name="email" class="company" id="company"
+                        <input type="text" value="{{$professeur->person->email}}" name="email" class="company"
+                               id="company"
                                placeholder="{{__('messages.email')}}" required>
                     </div>
 
 
                     <div class="form-row">
-                        <input type="text" value="{{old('niveau_scolaire')}}" name="niveau_scolaire" class="company"
+                        <input type="text" value="{{$professeur->person->niveau_scolaire}}" name="niveau_scolaire"
+                               class="company"
                                id="company" placeholder="{{__('messages.niveau_scolaire')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('option')}}" name="option" class="company" id="company"
+                        <input type="text" value="{{$professeur->person->option}}" name="option" class="company"
+                               id="company"
                                placeholder="{{__('messages.option')}}" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('etablissement')}}" name="etablissement" class="company" id="company"
+                        <input type="text" value="{{$professeur->person->etablissement}}" name="etablissement"
+                               class="company" id="company"
                                placeholder="{{__('messages.etablissement')}}" required>
                     </div>
 
@@ -106,46 +115,58 @@
                     <div class="form-row">
                         <h6 style="color: bisque">{{__('messages.maladie_specifique')}}</h6>
                         <select name="maladie_specifique">
-                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
-                            <option value="1">{{__('messages.oui')}}</option>
-                            <option value="0">{{__('messages.non')}}</option>
-
+                            @if($professeur->person->maladie_specifique)
+                                <option value="1" selected>{{__('messages.oui')}}</option>
+                                <option value="0">{{__('messages.non')}}</option>
+                            @else
+                                <option value="1" selected>{{__('messages.oui')}}</option>
+                                <option value="0" selected>{{__('messages.non')}}</option>
+                            @endif
                         </select>
 
                     </div>
                     <div class="form-row">
                         <h6 style="color: bisque">{{__('messages.maladie_respiratoire')}}</h6>
                         <select name="maladie_respiratoire">
-                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
-                            <option value="1">{{__('messages.oui')}}</option>
-                            <option value="0">{{__('messages.non')}}</option>
-
+                            @if($professeur->person->maladie_respiratoire)
+                                <option value="1" selected>{{__('messages.oui')}}</option>
+                                <option value="0">{{__('messages.non')}}</option>
+                            @else
+                                <option value="1" selected>{{__('messages.oui')}}</option>
+                                <option value="0" selected>{{__('messages.non')}}</option>
+                            @endif
                         </select>
+
 
                     </div>
                     <div class="form-row">
                         <h6 style="color: bisque">{{__('messages.maladie_vue')}}</h6>
                         <select name="maladie_vue">
-                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
-                            <option value="1">{{__('messages.oui')}}</option>
-                            <option value="0">{{__('messages.non')}}</option>
-
+                            @if($professeur->person->maladie_vue)
+                                <option value="1" selected>{{__('messages.oui')}}</option>
+                                <option value="0">{{__('messages.non')}}</option>
+                            @else
+                                <option value="1" selected>{{__('messages.oui')}}</option>
+                                <option value="0" selected>{{__('messages.non')}}</option>
+                            @endif
                         </select>
 
                     </div>
                     <div class="form-row">
                         <h6 style="color: bisque">{{__('messages.maladie_audition')}}</h6>
                         <select name="maladie_audition">
-                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
-                            <option value="1">{{__('messages.oui')}}</option>
-                            <option value="0">{{__('messages.non')}}</option>
-
+                            @if($professeur->person->maladie_audition)
+                                <option value="1" selected>{{__('messages.oui')}}</option>
+                                <option value="0">{{__('messages.non')}}</option>
+                            @else
+                                <option value="1" selected>{{__('messages.oui')}}</option>
+                                <option value="0" selected>{{__('messages.non')}}</option>
+                            @endif
                         </select>
-
                     </div>
 
                     <div class="form-row-last">
-                        <input type="submit" name="register" class="register" value="{{__('messages.envoyer')}}">
+                        <input type="submit" name="register" class="register" value="Modifier">
                     </div>
                 </div>
             </form>

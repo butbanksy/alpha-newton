@@ -63,12 +63,18 @@
                                     <h6 class="d-block"
                                         style="font-size: 1.5rem; font-weight: bold">{{$etudiant->person->nom . " " . $etudiant->person->prenom}}</h6>
                                 </div>
+                                <div class="pl-2 float-right">
+                                    <a href="/fr/admin/student/edit/{{$etudiant->id}}">
+                                        <div class="btn btn-info mb-3">Modifier
+                                        </div>
+                                    </a>
+                                </div>
                                 <div class="ml-auto">
                                     <input type="button" class="btn btn-primary d-none" id="btnDiscard"
                                            value="Discard Changes"/>
                                     <a>
                                         <div class="btn btn-danger mb-3" data-toggle="modal"
-                                             data-target="#exampleModal">Supprimer <span aria-hidden="true">&#10005;
+                                        data-target="#exampleModal">Supprimer <span aria-hidden="true">&#10005;
                                             </span>
                                         </div>
                                     </a>

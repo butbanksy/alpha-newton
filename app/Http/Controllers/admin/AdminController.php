@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Person;
 use App\Models\Professor;
+use App\Models\Responsable;
 use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
@@ -38,10 +40,18 @@ class AdminController extends Controller
 
     public function showStudent($locale, $id)
     {
-        $etudiant = Student::find($id)->with(["person", "responsable", "subjects"])->first();
+        $etudiant = Student::where('id', $id)->with(["person", "responsable", "subjects"])->first();
 
         return view("admin/students/student", ["etudiant" => $etudiant]);
 
+    }
+
+    public function modifyStudent($locale, $id)
+    {
+        $student = Student::where('id', $id)->with(["person", "responsable", "subjects"])->first();
+        $matieres = Subject::all();
+
+        return view("admin/students/modify-student", ["student" => $student, "matieres" => $matieres]);
     }
 
     public function deleteStudent($locale, $id)
@@ -65,6 +75,90 @@ class AdminController extends Controller
         $professeur = Professor::where('id', $id)->with("person")->first();
 
         return view("admin/professors/professor", ["professeur" => $professeur]);
+    }
+
+    public function putStudent(Request $request, $locale, Student $student)
+    {
+        $validatedData = $request->validate([
+            'prenom' => 'required|min:3|max:30',
+            'nom' => 'required|min:3|max:30',
+            'prenom_resp' => 'required|min:3|max:30',
+            'nom_resp' => 'required|min:3|max:30',
+            'profession_resp' => 'required|min:3|max:30',
+            'adresse_resp' => 'required|min:3',
+            'telephone_resp' => 'required|numeric',
+            'date_naissance' => 'required',
+            'lieu_naissance' => 'required|min:2|max:40',
+            'adresse' => 'required|min:3',
+            'telephone' => 'required|numeric',
+            'niveau_scolaire' => 'required',
+            'option' => 'required',
+            'etablissement' => 'required',
+            'maladie_specifique' => 'required',
+            'maladie_respiratoire' => 'required',
+            'maladie_vue' => 'required',
+            'maladie_audition' => 'required',
+            'matiere_id' => 'array|min:1'
+        ]);
+
+        $person = Person::findOrFail($student->personne_id);
+        $person->fill($request->except(['_token, _method, register']));
+
+        $responsable = Responsable::where('etudiant_id', $student->id)->first();
+        $responsable->fill([
+            'nom' => $request->input('nom_resp'),
+            'prenom' => $request->input('prenom_resp'),
+            'adresse' => $request->input('adresse_resp'),
+            'email' => $request->input('email_resp'),
+            'profession' => $request->input('profession_resp'),
+            'telephone' => $request->input('telephone_resp'),
+        ]);
+        $subjects = $request->input('matiere_id');
+        $student->subjects()->detach();
+        $student->subjects()->attach($subjects);
+        $person->save();
+        $responsable->save();
+        $student->save();
+
+        return redirect("/fr/admin/students")->with(["message" => "Etudiant(e) modifié(e) avec succès"]);
+
+
+    }
+
+    public function modifyProfessor($locale, $id)
+    {
+        $professor = Professor::where('id', $id)->with("person")->first();
+
+        return view("admin/professors/modify-professor", ["professeur" => $professor]);
+    }
+
+    public function putProfessor(Request $request, $locale, Professor $professor)
+    {
+        $validatedData = $request->validate([
+            'prenom' => 'required|min:3|max:30',
+            'nom' => 'required|min:3|max:30',
+            'date_naissance' => '',
+            'lieu_naissance' => 'required|min:2|max:40',
+            'adresse' => 'required|min:3',
+            'telephone' => 'required|numeric',
+            'email' => 'required|email',
+            'niveau_scolaire' => 'required',
+            'option' => 'required',
+            'etablissement' => 'required',
+            'maladie_specifique' => 'required',
+            'maladie_respiratoire' => 'required',
+            'maladie_vue' => 'required',
+            'maladie_audition' => 'required',
+        ]);
+
+        $us = Person::findOrFail($professor->personne_id);
+
+        $us->fill($request->except(['_token, _method, register']));
+        $us->save();
+
+        return redirect("/fr/admin/professeurs")->with(["message" => "Professeur modifié(e) avec succès"]);
+
+
     }
 
     public function deleteProfessor($loacle, $id)

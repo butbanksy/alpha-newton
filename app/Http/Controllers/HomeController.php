@@ -50,10 +50,9 @@ class HomeController extends Controller
                 ]);
         */
 
-        $student = Student::where("id", 3)->with(["person", "responsable", "subjects"])->first();
 
 
-        return view("home", ["student" => $student]);
+        return view("home");
 
     }
 
@@ -65,13 +64,5 @@ class HomeController extends Controller
     public function inscription()
     {
         return view("inscription");
-    }
-
-    public function test(){
-        $etudiant = Student::where('id', 3)->with("subjects")->first();
-        $etudiant->subjects()->attach([2,6,7]);
-        $etudiant->save();
-
-        dd($etudiant);
     }
 }

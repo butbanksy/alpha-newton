@@ -60,6 +60,14 @@
     @include('header')
     @yield('content')
 </main>
+<footer>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© {{date('Y')}} Site Web créé par :
+        <a href="https://mdbootstrap.com/"> X</a>
+    </div>
+    <!-- Copyright -->
 
+</footer>
+<!-- Footer -->
 </body>
 </html>

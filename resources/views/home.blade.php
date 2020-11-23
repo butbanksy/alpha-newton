@@ -4,6 +4,11 @@
 @section('content')
 <nav class="navbar navbar-expand-lg " >
     <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150" width="700"/> </a>
+    <a href="/admin" >
+       
+        Partie Admin
+    
+</a>
     </nav>
     <div class="container">
         <div class="col-sm-12">
@@ -28,4 +33,6 @@
             </div>
         </div>
     </div>
+    <br><br><br>
+    
 @endsection

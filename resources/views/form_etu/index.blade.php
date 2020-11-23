@@ -13,6 +13,11 @@
     <nav class="navbar navbar-expand-lg ">
         <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150"
                                                            width="700"/> </a>
+                                                           <a href="/">
+                                                            <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+                                                                Revenir à l'accueil
+                                                            </div>
+                                                        </a>
     </nav>
     @if ($errors->any())
         <div class="container">
@@ -44,7 +49,7 @@
           href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
     <form action="/{{$app->getLocale()}}/inscription/etudiant" method="post">
         @csrf
-
+        
         <div class="page-content">
             <div class="form-v10-content mb-1 mt-5">
                 <div class="form-detail" id="myform">
@@ -166,7 +171,8 @@
                                         <input type="checkbox" class="custom-control-input" id="{{$matiere->id}}"
                                                name="matiere_id[]" value="{{$matiere->id}}">
                                         <label class="custom-control-label"
-                                               for="{{$matiere->id}}">{{$matiere->nom}}</label>
+                                               for="{{$matiere->id}}">{{$matiere->nom}}
+                                           &nbsp;&nbsp;( {{$matiere->prix}} DH)</label>
                                     </div>
                                 </li>
                             @endforeach()

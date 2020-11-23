@@ -41,6 +41,17 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top p-5" src="{{asset('/images/subject.png')}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">La Liste de Présence du Jour</h5>
+                       
+                        <br/><br>
+                        <a href="{{asset('/images/fiche.pdf')}}" class="btn btn-primary">Télécharger votre liste d'absence</a>
+                    </div>
+                </div>
+            </div>
             <br/>
         </div>
     </div>

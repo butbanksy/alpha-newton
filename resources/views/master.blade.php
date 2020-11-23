@@ -63,7 +63,7 @@
 <footer>
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© {{date('Y')}} Site Web créé par :
-        <a href="https://mdbootstrap.com/"> X</a>
+        <a href="https://mdbootstrap.com/"> AN FOR TECH sarl   &nbsp; &nbsp;&nbsp; anfortech@gmail.com   &nbsp;&nbsp;&nbsp; 0661533642</a>
     </div>
     <!-- Copyright -->
 

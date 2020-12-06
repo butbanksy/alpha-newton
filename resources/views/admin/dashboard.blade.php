@@ -2,8 +2,14 @@
 
 @section("content")
     <nav class="navbar navbar-expand-lg ">
+        <a href="../">
+            <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+                Revenir à l'accueil 
+            </div>
+        </a>
         <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150"
                                                            width="700"/> </a>
+                                                          
     </nav>
     <div class="container">
         <div class="row justify-content-center">

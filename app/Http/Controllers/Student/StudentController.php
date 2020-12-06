@@ -81,5 +81,12 @@ class StudentController extends Controller
 
         return $pdf->stream('inscription.pdf');
     }
+    public function getNiveau($local,$niveau)
+    {
+        $n = Subject::where("niveau",$niveau)->get();
+        
+        return \response()->json($n);
+    }
+    
 }
 

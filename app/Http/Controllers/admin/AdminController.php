@@ -180,7 +180,9 @@ class AdminController extends Controller
     {
         $validatedData = $request->validate([
             'nom' => 'required|min:3|max:30',
-            'prix' => 'required|numeric']);
+            'prix' => 'required|numeric',
+            'niveau' => 'required'
+            ]);
 
         Subject::create($request->all());
 
@@ -192,12 +194,15 @@ class AdminController extends Controller
     {
         $validatedData = $request->validate([
             'nom' => 'required|min:3|max:30',
-            'prix' => 'required|numeric']);
+            'prix' => 'required|numeric',
+            'niveau' => 'required'
+            ]);
 
         $matiere = Subject::find($id);
 
         $matiere->nom = $request->input('nom');
         $matiere->prix = $request->input('prix');
+        $matiere->niveau = $request->input('niveau');
 
         $matiere->save();
 

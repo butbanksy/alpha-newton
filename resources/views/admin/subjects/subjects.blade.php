@@ -39,6 +39,7 @@
                     <th data-sortable="true" data-field="id">ID</th>
                     <th date-sortable="true" data-field="nom">Nom</th>
                     <th date-sortable="true" data-field="prix">Prix</th>
+                    <th date-sortable="true" data-field="niveau">Niveau</th>
                     <th data-field="etablissement">Actions</th>
                 </tr>
                 </thead>
@@ -48,6 +49,7 @@
                         <td data-toggle="table" scope="row" class="id" id={{$subject->id}}>{{$subject->id}}</td>
                         <td>{{$subject->nom}}</td>
                         <td>{{$subject->prix}}</td>
+                        <td>{{$subject->niveau}}</td>
                         <td>
                             <a href="/fr/admin/subject/edit/{{$subject->id}}">
                                 <div class="btn btn-primary more-info">

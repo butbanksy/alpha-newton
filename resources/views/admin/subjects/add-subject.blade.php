@@ -28,6 +28,10 @@
                 <input type="number" id="prix" name="prix" class="form-control mb-4"
                        placeholder="Entrer le prix de la matière...">
 
+                       <label for="niveau">Niveau </label>
+                <input type="text" id="niveau" name="niveau" class="form-control mb-4"
+                       placeholder="Entrer le niveau de la matière...">
+
                 <button class="btn btn-info btn-block" type="submit">Ajouter</button>
             </form>
         </div>

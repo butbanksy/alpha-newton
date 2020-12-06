@@ -70,15 +70,15 @@
                     <div class="form-row">
                         <h6 style="color: black">Date de naissance</h6>
                         <input type="date" name="date_naissance" value="{{old('date_naissance')}}" class="company" id="company"
-                               placeholder="Date de Naissance" required>
+                               placeholder="Date de Naissance" >
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('lieu_naissance')}}" name="lieu_naissance" class="company"
-                               id="company" placeholder="{{__('messages.lieu_naissance')}}" required>
+                               id="company" placeholder="{{__('messages.lieu_naissance')}}" >
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('adresse')}}" name="adresse" class="company" id="company"
-                               placeholder="{{__('messages.adresse')}}" required>
+                               placeholder="{{__('messages.adresse')}}" >
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('telephone')}}" name="telephone" class="company" id="company"
@@ -86,7 +86,7 @@
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('email')}}" name="email" class="company" id="company"
-                               placeholder="{{__('messages.email')}}" required>
+                               placeholder="{{__('messages.email')}}" >
                     </div>
 
 

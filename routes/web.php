@@ -65,7 +65,7 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::get('/pdf', [ProfessorController::class, 'pdf']);
 
-
+    Route::get('/getNiveau/{niveau}', [StudentController::class, 'getNiveau']);
     Auth::routes();
 });
 

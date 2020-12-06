@@ -68,29 +68,73 @@
                         </div>
                         <div class="form-row">
                             <input type="date" value="{{old('date_naissance')}}" name="date_naissance" class="company"
-                                   id="company" placeholder="{{__('messages.date_naissance')}}" required>
+                                   id="company" placeholder="{{__('messages.date_naissance')}}" >
                         </div>
                         <div class="form-row">
                             <input type="text" value="{{old('lieu_naissance')}}" name="lieu_naissance" class="company"
-                                   id="company" placeholder="{{__('messages.lieu_naissance')}}" required>
+                                   id="company" placeholder="{{__('messages.lieu_naissance')}}" >
                         </div>
                         <div class="form-row">
                             <input type="text" value="{{old('adresse')}}" name="adresse" class="company" id="company"
-                                   placeholder="{{__('messages.adresse')}}" required>
+                                   placeholder="{{__('messages.adresse')}}" >
                         </div>
                         <div class="form-row">
                             <input type="text" value="{{old('telephone')}}" name="telephone" class="company"
                                    id="company" placeholder="{{__('messages.tel')}}" required>
                         </div>
-                        <div class="form-row">
+                        <div class="form-row" >
                             <input type="text" value="{{old('email')}}" name="email" class="company" id="company"
-                                   placeholder="{{__('messages.email')}}" required>
+                                   placeholder="{{__('messages.email')}}" >
                         </div>
 
 
                         <div class="form-row">
-                            <input type="text" value="{{old('niveau_scolaire')}}" name="niveau_scolaire" class="company"
-                                   id="company" placeholder="{{__('messages.niveau_scolaire')}}" required>
+                            
+
+                                   <select name="niveau_scolaire" id="select" placeholder="{{__('messages.niveau_scolaire')}}">
+                                    <option disabled selected>Choisissez votre niveau scolaire</option>
+                                    <option value="college">Collège</option>
+                                    <option value="5eme">5ème</option>
+                                    <option value="6eme">6ème</option>
+                                    <option value="bacar">Bac Arabe</option>
+                                    <option value="bacfr">Bac Francais</option>
+    
+                                </select>
+                                <script>
+                                    $('select').on('change', function (e) {
+                                   
+
+                                 let url = `/fr/getNiveau/${e.target.value}`;
+                                 fetch(url)
+                                 .then(res =>res.json(res))
+                                 .then(res=>{
+                                    let html = ""
+                                    for(let el of res){
+                                        html += `<ul class="list-group list-group-flush">
+                           
+                           <li class="list-group-item">
+                               <!-- Default checked -->
+                               <div class="custom-control custom-checkbox">
+                                   <input type="checkbox" class="custom-control-input" id="${el.id}"
+                                          name="matiere_id[]" value="${el.id}">
+                                   <label class="custom-control-label"
+                                          for="${el.id}">${el.nom}
+                                      &nbsp;&nbsp;(${el.prix}DH)</label>
+                               </div>
+                           </li>
+                   </ul>
+                                        
+                                             
+                                            
+                                          
+                                        `
+                                    }
+                                    $("#a").html(html)
+                                 })
+                                .catch(err => console.log('Request Failed', err));
+
+});
+                                </script>
                         </div>
                         <div class="form-row">
                             <input type="text" value="{{old('option')}}" name="option" class="company" id="company"
@@ -162,22 +206,11 @@
                     <div class="form-left">
                         <h2>{{__('messages.matiere_de_soutien')}}</h2>
 
+                        <div id="a"></div>
+                       
 
-                        <ul class="list-group list-group-flush">
-                            @foreach($matieres as $matiere)
-                                <li class="list-group-item">
-                                    <!-- Default checked -->
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="{{$matiere->id}}"
-                                               name="matiere_id[]" value="{{$matiere->id}}">
-                                        <label class="custom-control-label"
-                                               for="{{$matiere->id}}">{{$matiere->nom}}
-                                           &nbsp;&nbsp;( {{$matiere->prix}} DH)</label>
-                                    </div>
-                                </li>
-                            @endforeach()
-                        </ul>
-
+                      
+                        
 
                     </div>
                     <div class="form-right">
@@ -196,7 +229,7 @@
 
                         <div class="form-row">
                             <input type="text" value="{{old('email_resp')}}" name="email_resp" class="company"
-                                   id="company" placeholder="{{__('messages.email')}}" required>
+                                   id="company" placeholder="{{__('messages.email')}}" >
                         </div>
                         <div class="form-row">
                             <input type="text" value="{{old('telephone_resp')}}" name="telephone_resp" class="company"
@@ -205,13 +238,14 @@
 
                         <div class="form-row">
                             <input type="text" value="{{old('profession')}}" name="profession_resp" class="company"
-                                   id="company" placeholder="{{__('messages.profession')}}" required>
+                                   id="company" placeholder="{{__('messages.profession')}}" >
                         </div>
                         <div class="form-row">
                             <input type="text" value="{{old('adresse_resp')}}" name="adresse_resp" class="company"
-                                   id="company" placeholder="{{__('messages.adresse')}} " required>
+                                   id="company" placeholder="{{__('messages.adresse')}} " >
 
                         </div>
+                        
 
 
                         <div class="form-row-last">

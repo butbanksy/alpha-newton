@@ -46,11 +46,10 @@ class StudentController extends Controller
         $person = Person::create($request->all());
 
         $etudiant = Student::create([
-                'personne_id' => $person->id,
-                'redoublant' => true,
-                'nouvel_etudiant' => false,
-            ]
-        );
+            'personne_id' => $person->id,
+            'redoublant' => true,
+            'nouvel_etudiant' => false,
+        ]);
 
 
         //create an instance of etudiant_matieres for every matiere
@@ -68,25 +67,30 @@ class StudentController extends Controller
             "email" => $request->email_resp,
         ]);
 
-        $pdf = PDF::loadView('pdf.inscription',
+        $pdf = PDF::loadView(
+            'pdf.inscription',
             ["data" => $etudiant],
-            ['default_font' => 'dejavusans']);
+            ['default_font' => 'dejavusans']
+        );
         $pdf->stream('inscription.pdf');
     }
 
     public function pdf()
     {
-        $pdf = PDF::loadView('pdf.professor',
-            [], [], ["font-family" => "XB Riyaz"]);
+        $pdf = PDF::loadView(
+            'pdf.professor',
+            [],
+            [],
+            ["font-family" => "XB Riyaz"]
+        );
 
         return $pdf->stream('inscription.pdf');
     }
-    public function getNiveau($local,$niveau)
+    public function getNiveau($local, $niveau)
     {
-        $n = Subject::where("niveau",$niveau)->get();
-        
+        $n = Subject::where("niveau", $niveau)->get();
+
         return \response()->json($n);
     }
-    
-}
 
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Student;
 
 class HomeController extends Controller
@@ -50,9 +51,10 @@ class HomeController extends Controller
                 ]);
         */
 
-
-
-        return view("home");
+        $students = Student::with('person')->whereHas('subjects', function($query){
+            return $query->where('niveau', 'bacfr')->where('nom', 'maths');
+        })->get();
+        return \response()->json($students);
 
     }
 

@@ -24,15 +24,16 @@
                 data-toggle="table"
                 data-pagination="true"
                 data-locale="fr-FR"
+                data-filter-control="true"
                 data-search="true">
                 <thead>
                 <tr>
                     <th data-sortable="true" data-field="id">ID</th>
                     <th date-sortable="true" data-field="prenom">Prénom</th>
-                    <th date-sortable="true" data-field="nom">Nom</th>
+                    <th date-sortable="true" data-field="nom" data-filter-control="input">Nom</th>
                     <th data-field="date_naissance">Date de naissance</th>
                     <th data-field="telephone">Téléphone</th>
-                    <th data-field="niveau_scolaire">Niveau scolaire</th>
+                    <th data-field ="niveau_scolaire">Niveau scolaire</th>
                     <th data-field="option">Option</th>
                     <th data-field="etablissement">Etablissement</th>
                     <th data-field="button">Plus d'infos</th>

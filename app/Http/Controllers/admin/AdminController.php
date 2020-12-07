@@ -38,12 +38,22 @@ class AdminController extends Controller
         return view("admin/students/students-table", ["etudiants" => $etudiants]);
     }
 
+    public function filterStudents($locale, Request $request)
+    {
+        $etudiants = Student::with('person')->whereHas('subjects', function ($query) use (&$request) {
+            return $query
+            ->where('niveau', $request->input('niveau_scolaire'))
+            ->where('nom', $request->input('matiere'));})
+            ->get();
+
+        return view("admin/students/students-table", ["etudiants" => $etudiants]);
+    }
+
     public function showStudent($locale, $id)
     {
         $etudiant = Student::where('id', $id)->with(["person", "responsable", "subjects"])->first();
 
         return view("admin/students/student", ["etudiant" => $etudiant]);
-
     }
 
     public function modifyStudent($locale, $id)
@@ -121,8 +131,6 @@ class AdminController extends Controller
         $student->save();
 
         return redirect("/fr/admin/students")->with(["message" => "Etudiant(e) modifié(e) avec succès"]);
-
-
     }
 
     public function modifyProfessor($locale, $id)
@@ -157,8 +165,6 @@ class AdminController extends Controller
         $us->save();
 
         return redirect("/fr/admin/professeurs")->with(["message" => "Professeur modifié(e) avec succès"]);
-
-
     }
 
     public function deleteProfessor($loacle, $id)
@@ -182,12 +188,11 @@ class AdminController extends Controller
             'nom' => 'required|min:3|max:30',
             'prix' => 'required|numeric',
             'niveau' => 'required'
-            ]);
+        ]);
 
         Subject::create($request->all());
 
         return redirect("/fr/admin/subjects")->with(["message" => "Matière ajoutée avec succès"]);
-
     }
 
     public function putSubject(Request $request, $locale, $id)
@@ -196,7 +201,7 @@ class AdminController extends Controller
             'nom' => 'required|min:3|max:30',
             'prix' => 'required|numeric',
             'niveau' => 'required'
-            ]);
+        ]);
 
         $matiere = Subject::find($id);
 
@@ -207,8 +212,6 @@ class AdminController extends Controller
         $matiere->save();
 
         return redirect("/fr/admin/subjects")->with(["message" => "Matière modifiée avec succès"]);
-
-
     }
 
     public function addSubject(Request $request)
@@ -228,6 +231,5 @@ class AdminController extends Controller
         Subject::destroy($id);
 
         return redirect("/fr/admin/subjects")->with(["message" => "Matière supprimée avec succès"]);
-
     }
 }

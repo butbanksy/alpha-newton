@@ -40,5 +40,5 @@ return [
     "science_ing" => "علوم المهندس",
     "naturel_science" => "العلوم الطبيعية",
     "matiere_de_soutien" => "مواد الدعم"
-
+    
 ];

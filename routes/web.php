@@ -33,6 +33,7 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::get('/admin/students', [AdminController::class, 'showStudents']);
     Route::get('/admin/student/{id}', [AdminController::class, 'showStudent']);
+    Route::post('/admin/students/filter', [AdminController::class, 'filterStudents']);
     Route::get('/admin/student/edit/{id}', [AdminController::class, 'showStudent']);
     Route::get('/admin/student/edit/{id}', [AdminController::class, 'modifyStudent']);
     Route::put('/admin/student/edit/{student}', [AdminController::class, 'putStudent']);

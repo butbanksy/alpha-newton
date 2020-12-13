@@ -51,7 +51,11 @@ class HomeController extends Controller
                 ]);
         */
 
+<<<<<<< HEAD
+        return view("home");
+=======
        return view("home");
+>>>>>>> 6b9783718f62efc07c7beb7b2f297badef0333b6
 
     }
 

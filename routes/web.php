@@ -30,7 +30,8 @@ Route::group(['prefix' => '{language}'], function () {
     //Admin routes
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/login', [AdminController::class, 'login']);
-
+    
+    Route::post('/admin/students/excel', [AdminController::class, 'export']);
     Route::get('/admin/students', [AdminController::class, 'showStudents']);
     Route::get('/admin/student/{id}', [AdminController::class, 'showStudent']);
     Route::post('/admin/students/filter', [AdminController::class, 'filterStudents']);
@@ -63,6 +64,9 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/inscription/etudiant', [StudentController::class, 'index']);
     Route::post('/inscription/etudiant', [StudentController::class, 'store']);
 
+
+
+    Route::get('/admin/students/excel_export', [AdminController::class, 'excel_export']);
 
     Route::get('/pdf', [ProfessorController::class, 'pdf']);
 

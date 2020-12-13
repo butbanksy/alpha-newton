@@ -51,10 +51,7 @@ class HomeController extends Controller
                 ]);
         */
 
-        $students = Student::with('person')->whereHas('subjects', function($query){
-            return $query->where('niveau', 'bacfr')->where('nom', 'maths');
-        })->get();
-        return \response()->json($students);
+        return view("home");
 
     }
 

@@ -10,6 +10,9 @@ use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class AdminController extends Controller
 {
@@ -31,6 +34,10 @@ class AdminController extends Controller
     {
         return view("admin/login");
     }
+    public function excel_export()
+    {
+        return view("admin/students/excel_export");
+    }
 
     public function showStudents()
     {
@@ -47,6 +54,12 @@ class AdminController extends Controller
             ->get();
 
         return view("admin/students/students-table", ["etudiants" => $etudiants]);
+    }
+
+   
+    public function export($locale,Request $request) 
+    {
+        return Excel::download(new UsersExport($request->niveau_scolaire,$request->matiere), 'alphaNewton.xlsx');
     }
 
     public function showStudent($locale, $id)

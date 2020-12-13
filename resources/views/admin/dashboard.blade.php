@@ -7,7 +7,7 @@
                 Revenir à l'accueil 
             </div>
         </a>
-        <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/log.png')}}" height="150"
+        <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/entete.png')}}" height="150"
                                                            width="700"/> </a>
                                                           
     </nav>
@@ -49,15 +49,27 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img class="card-img-top p-5" src="{{asset('/images/subject.png')}}" alt="Card image cap">
+                    <img class="card-img-top p-5" src="{{asset('/images/pdf.png')}}" alt="Card image cap" >
                     <div class="card-body">
                         <h5 class="card-title">La Liste de Présence du Jour</h5>
                        
-                        <br/><br>
-                        <a href="{{asset('/images/fiche.pdf')}}" class="btn btn-primary">Télécharger votre liste d'absence</a>
+                        
+                        <a href="{{asset('/images/fiche.pdf')}}" class="btn btn-primary">Télécharger votre liste d'absence</a><br><br>
                     </div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top p-5" src="{{asset('/images/excel.jpg')}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Exporter en EXCEL</h5>
+                       
+                        <br/><br>
+                        <a href="/fr/admin/students/excel_export" class="btn btn-primary">Télécharger votre liste en EXCEL</a>
+                    </div>
+                </div>
+            </div>
+
             <br/>
         </div>
     </div>

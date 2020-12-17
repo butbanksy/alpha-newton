@@ -19,11 +19,17 @@
         Chercher
     </div>
 
+    <td><input type="checkbox" class="option" name="cb" value="1"> 1 </td>
+    <td><input type="checkbox" class="option" name="cb" value="2"> 2 </td>
+    <td><input type="checkbox" class="option" name="cb" value="3"> 3 </td>
+    <div class="number">
+        hello
+    </div>
     <script>
         $('#getInfo').click(function() {
             let niveau = $("select#niveaux").val();
             let matiere = $("select#matiere").val();
-            
+
         })
         $('#select').on('change', function(e) {
 
@@ -47,6 +53,16 @@
                 .catch(err => console.log('Request Failed', err));
 
         });
+
+
+
+        $(document).on("change", ".option", function() {
+            var total = 0;
+            $('.option:checked').each(function() {
+                total += parseInt($(this).val());
+            })
+            $('.number').html( total + ' DH');
+        })
     </script>
 
 </div>

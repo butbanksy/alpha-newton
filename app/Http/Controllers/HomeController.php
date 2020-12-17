@@ -51,12 +51,7 @@ class HomeController extends Controller
                 ]);
         */
 
-<<<<<<< HEAD
         return view("home");
-=======
-       return view("home");
->>>>>>> 6b9783718f62efc07c7beb7b2f297badef0333b6
-
     }
 
     public function header()
@@ -67,5 +62,10 @@ class HomeController extends Controller
     public function inscription()
     {
         return view("inscription");
+    }
+
+    public function test()
+    {
+        return view("test");
     }
 }

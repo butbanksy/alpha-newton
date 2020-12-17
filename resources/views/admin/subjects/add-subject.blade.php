@@ -1,5 +1,7 @@
 @extends('master')
 @section('content')
+    @include('admin.header')
+
     <div class="container-fluid">
         <div class="row col-12 justify-content-center">
 

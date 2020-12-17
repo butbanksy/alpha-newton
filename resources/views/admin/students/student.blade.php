@@ -1,12 +1,10 @@
 @extends("master")
 @section("content")
+    @include('admin.header')
 
     <head>
         <style>
-            body {
-                padding-top: 68px;
-                padding-bottom: 50px;
-            }
+
 
             .image-container {
                 position: relative;

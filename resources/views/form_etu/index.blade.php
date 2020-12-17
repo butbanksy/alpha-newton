@@ -11,7 +11,7 @@
 @section("content")
 
 <nav class="navbar navbar-expand-lg ">
-    <a href="./">
+    <a href="javascript:history.back()">
         <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
             Page Précédente
         </div>
@@ -116,7 +116,7 @@
                                         for (let el of res) {
                                             parsedPrice = String(el.prix);
                                             html += `<ul class="list-group list-group-flush">
-                                            
+
                            <li class="list-group-item">
                                <!-- Default checked -->
                                <div class="custom-control custom-checkbox">

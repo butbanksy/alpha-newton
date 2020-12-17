@@ -1,6 +1,8 @@
 @extends('master')
 @section("content")
-<div class="container ">
+    @include('admin.header')
+
+    <div class="container ">
     <div class="row">
         @if(session("message"))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -17,9 +19,9 @@
         </a>
 
     </div>
-    
+
         <div class="col-sm-12 pt-5">
-            <h4>Filter votre recherche</h4>
+            <h4>Filtrer votre recherche</h4>
         </div>
         <br>
         <form id="myForm" action="/fr/admin/students/excel" method="post">
@@ -40,9 +42,9 @@
             <div class="btn btn-primary" id="getInfo">
                Exporter
             </div>
-   
+
         </form>
-       
+
 
     <script>
         $('#getInfo').click(function() {
@@ -62,11 +64,11 @@
             fetch(url)
                 .then(res => res.json(res))
                 .then(res => {
-                    let html = `                        
+                    let html = `
                     <select name="niveau_scolaire" id="select" placeholder="{{__('messages.niveau_scolaire')}}">
                         <option disabled selected>Choisissez votre matière</option>`
                     for (let el of res) {
-                        html += `    
+                        html += `
                             <option value="${el.nom}">${el.nom}</option>
 
                 `
@@ -79,7 +81,7 @@
         });
     </script>
 
-   
+
 
 
 </div>

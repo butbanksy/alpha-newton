@@ -46,7 +46,7 @@
     <script src="{{ asset('js/bootstrap-table.min.js')}}"></script>
     <script src="{{ asset('js/bootstrap-table-fr-FR.js')}}"></script>
     <script src="{{ asset('js/bootstrap-table-filter-control.min.js')}}"></script>
-    
+
     <script src="{{ asset('js/main.js')}}"></script>
 
 
@@ -59,7 +59,6 @@
 </head>
 <body>
 <main class="py-4">
-    @include('header')
     @yield('content')
 </main>
 <footer>

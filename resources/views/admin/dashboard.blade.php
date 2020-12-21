@@ -54,7 +54,7 @@
                         <h5 class="card-title">La Liste de Présence du Jour</h5>
                        
                         
-                        <a href="{{asset('/images/fiche.pdf')}}" class="btn btn-primary">Télécharger votre liste d'absence</a><br><br>
+                        <a href="/fr/admin/students/pdf" class="btn btn-primary">Télécharger votre liste d'absence</a><br><br>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\DynamicPDFController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Professor\ProfessorController;
 use App\Http\Controllers\Student\StudentController;
@@ -68,7 +69,7 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::get('/admin/students/excel_export', [AdminController::class, 'excel_export']);
 
-    Route::get('/pdf', [ProfessorController::class, 'pdf']);
+    Route::post('/admin/students/pdf', [AdminController::class, 'pdf']);
 
     Route::get('/getNiveau/{niveau}', [StudentController::class, 'getNiveau']);
     Auth::routes();

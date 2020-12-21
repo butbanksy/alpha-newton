@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ExportExcelController extends Controller
 {
-    public function excel($locale, Request $request)
+    public function excel()
     {
         $etudiants = Student::with('person')->whereHas('subjects', function ($query) use (&$request) {
             return $query

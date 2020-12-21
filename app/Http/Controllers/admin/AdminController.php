@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
+
+use App;
+
 
 
 class AdminController extends Controller
@@ -38,6 +42,7 @@ class AdminController extends Controller
     {
         return view("admin/students/excel_export");
     }
+    
 
     public function showStudents()
     {
@@ -55,6 +60,52 @@ class AdminController extends Controller
 
         return view("admin/students/students-table", ["etudiants" => $etudiants]);
     }
+    
+    function pdf($locale, Request $request)
+    {
+        $etudiants = Student::with('person')->whereHas('subjects', function ($query) use (&$request) {
+            return $query
+            ->where('niveau', $request->input('niveau_scolaire'))
+            ->where('nom', $request->input('matiere'));})
+            ->get();
+        $pdf = \App::make('dompdf.wrapper');
+        
+    
+        $a ='<table id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
+       <thead>
+           <tr>
+               <th data-sortable="true" data-field="id">ID</th>
+               <th date-sortable="true" data-field="prenom">Prénom</th>
+               <th date-sortable="true" data-field="nom">Nom</th>
+               <th data-field="true">Abscent</th>
+               <th data-field="true">Présent</th>
+               
+           </tr>
+       </thead>
+       <tbody>
+       
+           @foreach($etudiants as $etudiant)
+           <tr>
+               <td >{{$etudiant->id}}</td>
+               <td>{{$etudiant->person->nom}}</td>
+               <td>{{$etudiant->person->prenom}}</td>
+               <td class="text-right"></td>
+               <td></td>
+               <td></td>
+            
+           </tr>
+           @endforeach()
+
+       </tbody>
+   </table>';
+
+        //$pdf = PDF::loadView('pdf_view', $data);  
+        //return $pdf->download('medium.pdf');
+        $pdf->loadHTML($a);
+        return $pdf->stream();    
+    }
+    
+
 
    
     public function export($locale,Request $request) 

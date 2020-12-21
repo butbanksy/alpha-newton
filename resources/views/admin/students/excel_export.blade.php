@@ -22,7 +22,7 @@
             <h4>Filter votre recherche</h4>
         </div>
         <br>
-        <form id="myForm" action="/fr/admin/students/excel" method="post">
+        <form id="myForm" action="/fr/admin/students/pdf" method="post">
             @csrf
             <select name="niveau_scolaire" id="niveaux" placeholder="{{__('messages.niveau_scolaire')}}">
                 <option disabled selected>Choisissez votre niveau scolaire</option>

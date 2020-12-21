@@ -1,6 +1,8 @@
 @extends('master')
 
 @section('content')
+    @include('admin.header')
+
     <div class="container">
         @if(session("message"))
             <div class="alert alert-success alert-dismissible fade show" role="alert">

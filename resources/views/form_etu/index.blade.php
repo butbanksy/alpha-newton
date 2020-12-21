@@ -11,11 +11,11 @@
 @section("content")
 
 <nav class="navbar navbar-expand-lg ">
-<a href="./">
-            <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
-                Page Précédente
-            </div>
-        </a>
+    <a href="javascript:history.back()">
+        <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+            Page Précédente
+        </div>
+    </a>
     <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/entete.png')}}" height="150" width="700" /> </a>
     <a href="/">
         <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
@@ -96,6 +96,15 @@
 
                         </select>
                         <script>
+                            $(document).on("change", ".custom-control-input", function() {
+                                var total = 0;
+                                $('.custom-control-input:checked').each(function() {
+                                    total += parseInt($(this).attr('title'));
+                                })
+                                $('.total').html("Total : " + total + ' DH');
+                            })
+
+
                             $('select').on('change', function(e) {
 
 
@@ -105,22 +114,25 @@
                                     .then(res => {
                                         let html = ""
                                         for (let el of res) {
+                                            parsedPrice = String(el.prix);
                                             html += `<ul class="list-group list-group-flush">
-                           
+
                            <li class="list-group-item">
                                <!-- Default checked -->
                                <div class="custom-control custom-checkbox">
-                                   <input type="checkbox" class="custom-control-input" id="${el.id}"
+                                   <input type="checkbox" title= ${el.prix} class="custom-control-input" id="${el.id}"
                                           name="matiere_id[]" value="${el.id}">
                                    <label class="custom-control-label"
                                           for="${el.id}">${el.nom}
-                                      &nbsp;&nbsp;(${el.prix}DH)</label>
+                                      </label>
                                </div>
                            </li>
                    </ul>
                                         `
                                         }
                                         $("#a").html(html)
+                                        $('.total').html('Total : 0 DH');
+
                                     })
                                     .catch(err => console.log('Request Failed', err));
 
@@ -196,6 +208,13 @@
                     <h2>{{__('messages.matiere_de_soutien')}}</h2>
 
                     <div id="a"></div>
+                    <div class="container-fluid" style="position:absolute; bottom:0;">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <hr style="height: 3px;" />
+
+                            <h5 class="total">Total : 0 DH</h5>
+                        </div>
+                    </div>
 
 
 

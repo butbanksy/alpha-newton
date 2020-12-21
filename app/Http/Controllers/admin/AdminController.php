@@ -42,6 +42,10 @@ class AdminController extends Controller
     {
         return view("admin/students/excel_export");
     }
+    public function export_pdf()
+    {
+        return view("admin/students/export_pdf");
+    }
     
 
     public function showStudents()
@@ -71,33 +75,38 @@ class AdminController extends Controller
         $pdf = \App::make('dompdf.wrapper');
         
     
-        $a ='<table id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
+        $a ='
+        <a class="navbar-brand" style="margin:auto;"> <img src="../public/images/entete.png" height="150" width="700" /> </a><br><br>
+        
+        <p>Prof : ............................................................ &nbsp; &nbsp; Date :.........................................</p>
+        <p>Matière :.....................................&nbsp; &nbsp; Niveau :.........................................</p>
+        <table border="2" id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
        <thead>
            <tr>
                <th data-sortable="true" data-field="id">ID</th>
-               <th date-sortable="true" data-field="prenom">Prénom</th>
-               <th date-sortable="true" data-field="nom">Nom</th>
+               <th date-sortable="true" data-field="prenom">Nom</th>
+               <th date-sortable="true" data-field="nom">Prénom</th>
                <th data-field="true">Abscent</th>
                <th data-field="true">Présent</th>
                
            </tr>
        </thead>
-       <tbody>
+       <tbody>';
        
-           @foreach($etudiants as $etudiant)
-           <tr>
-               <td >{{$etudiant->id}}</td>
-               <td>{{$etudiant->person->nom}}</td>
-               <td>{{$etudiant->person->prenom}}</td>
-               <td class="text-right"></td>
+           foreach($etudiants as $etudiant){
+               $person = $etudiant->person;
+           $a=$a."<tr>
+               <td >$etudiant->id</td>
+               <td>$person->nom</td>
+               <td>$person->prenom</td>
                <td></td>
                <td></td>
             
-           </tr>
-           @endforeach()
+           </tr>";}
+           
 
-       </tbody>
-   </table>';
+     $a=$a."  </tbody>
+   </table>";
 
         //$pdf = PDF::loadView('pdf_view', $data);  
         //return $pdf->download('medium.pdf');

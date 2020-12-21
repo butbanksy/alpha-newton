@@ -26,12 +26,12 @@ Route::redirect('/admin', '/fr/admin');
 Route::group(['prefix' => '{language}'], function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::get('/header', [HomeController::class, 'header']);
-    Route::get('/test', [HomeController::class, 'test']);
+   // Route::get('/test', [HomeController::class, 'test']);
 
     //Admin routes
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/login', [AdminController::class, 'login']);
-    
+
     Route::post('/admin/students/excel', [AdminController::class, 'export']);
     Route::get('/admin/students', [AdminController::class, 'showStudents']);
     Route::get('/admin/student/{id}', [AdminController::class, 'showStudent']);
@@ -68,10 +68,11 @@ Route::group(['prefix' => '{language}'], function () {
 
 
     Route::get('/admin/students/excel_export', [AdminController::class, 'excel_export']);
+    Route::post('/admin/students/excel', [AdminController::class, 'export']);
 
     Route::post('/admin/students/pdf', [AdminController::class, 'pdf']);
+    Route::get('/admin/students/export_pdf', [AdminController::class, 'export_pdf']);
 
     Route::get('/getNiveau/{niveau}', [StudentController::class, 'getNiveau']);
     Auth::routes();
 });
-

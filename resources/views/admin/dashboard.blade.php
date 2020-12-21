@@ -1,16 +1,9 @@
 @extends('../master')
 
 @section("content")
-    <nav class="navbar navbar-expand-lg ">
-        <a href="../">
-            <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
-                Revenir à l'accueil 
-            </div>
-        </a>
-        <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/entete.png')}}" height="150"
-                                                           width="700"/> </a>
-                                                          
-    </nav>
+
+    @include('admin.header')
+
     <div class="container">
         <div class="row justify-content-center">
 
@@ -49,12 +42,18 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img class="card-img-top p-5" src="{{asset('/images/pdf.png')}}" alt="Card image cap" >
+                    <img class="card-img-top p-5" src="{{asset('/images/pdf.png')}}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">La Liste de Présence du Jour</h5>
+
                        
                         
-                        <a href="/fr/admin/students/pdf" class="btn btn-primary">Télécharger votre liste d'absence</a><br><br>
+                        <a href="/fr/admin/students/export_pdf" class="btn btn-primary">Télécharger votre liste d'absence</a><br><br>
+
+
+
+                       
+
                     </div>
                 </div>
             </div>
@@ -63,9 +62,10 @@
                     <img class="card-img-top p-5" src="{{asset('/images/excel.jpg')}}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Exporter en EXCEL</h5>
-                       
+
                         <br/><br>
-                        <a href="/fr/admin/students/excel_export" class="btn btn-primary">Télécharger votre liste en EXCEL</a>
+                        <a href="/fr/admin/students/excel_export" class="btn btn-primary">Télécharger votre liste en
+                            EXCEL</a>
                     </div>
                 </div>
             </div>

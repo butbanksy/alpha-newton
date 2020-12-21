@@ -9,11 +9,9 @@
 @endpush
 
 @section("content")
+    @include('admin.header')
 
-    <nav class="navbar navbar-expand-lg ">
-        <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/entete.png')}}" height="150"
-                                                           width="700"/> </a>
-    </nav>
+
     @if ($errors->any())
         <div class="container">
             <div class="alert alert-danger">

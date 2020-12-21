@@ -11,7 +11,7 @@
 <body style="font-family: 'XB Riyaz',  monospace, sans-serif; direction: rtl">
 إطار خاص بالمؤسسة
 <div style="border: 1px solid">
-     يشهد مدير المركز لدروس الدعم المدرسي وتحصيل اللغات السيد زكرياء وسيم
+     يشهد مدير المركز لدروس الدعم المدرسي وتحصيل اللغات السيد زكرياء الوسيم
     <br/>
     أن التلميذ (ة): {{$data->person->prenom . " " . $data->person->nom}} الذي يتابع دراسته لموسم: 2020-2021
     بالمؤسسة التعليمية
@@ -19,6 +19,7 @@
     <br/>
     قد سجل (ت) بالمؤسسة بتاريخ {{date("Y-m-d")}} تحت رقم: {{$data->person->id}}
     <br/>
+    <br><br><br>
 </div>
 <br/>
 إطار خاص بالتلميذ
@@ -39,8 +40,9 @@
 
     وأوافق على كل أشكال العقوبات التأديبية المتخذة من طرف إدارة المؤسسة في حالة الإخلال ببنود النظام الداخلي ونظام القسم
     وكذا الميثاق الأخلاقي للمؤسسة.
-    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     توقيع التلميذ
+    <br><br><br>
 </div>
 </body>
 

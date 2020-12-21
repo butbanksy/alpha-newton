@@ -17,18 +17,18 @@ class CreatePeopleTable extends Migration
             $table->id();
             $table->string("prenom");
             $table->string("nom");
-            $table->date("date_naissance");
-            $table->string("lieu_naissance");
-            $table->string("adresse");
+            $table->date("date_naissance")->nullable();
+            $table->string("lieu_naissance")->nullable();
+            $table->string("adresse")->nullable();
             $table->string("telephone");
-            $table->string("email");
+            $table->string("email")->nullable();
             $table->string("niveau_scolaire");
-            $table->string("option");
-            $table->string("etablissement");
-            $table->boolean("maladie_specifique");
-            $table->boolean("maladie_respiratoire");
-            $table->boolean("maladie_vue");
-            $table->boolean("maladie_audition");
+            $table->string("option")->nullable();
+            $table->string("etablissement")->nullable();
+            $table->boolean("maladie_specifique")->nullable();
+            $table->boolean("maladie_respiratoire")->nullable();
+            $table->boolean("maladie_vue")->nullable();
+            $table->boolean("maladie_audition")->nullable();
             $table->timestamps();
         });
     }

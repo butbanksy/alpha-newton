@@ -140,10 +140,10 @@
                         </script>
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('option')}}" name="option" class="company" id="company" placeholder="{{__('messages.option')}}" required>
+                        <input type="text" value="{{old('option')}}" name="option" class="company" id="company" placeholder="{{__('messages.option')}}" >
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('etablissement')}}" name="etablissement" class="company" id="company" placeholder="{{__('messages.etablissement')}}" required>
+                        <input type="text" value="{{old('etablissement')}}" name="etablissement" class="company" id="company" placeholder="{{__('messages.etablissement')}}">
                     </div>
 
 
@@ -155,7 +155,7 @@
                     <div class="form-row">
                         <h6 style="color: bisque">{{__('messages.maladie_specifique')}}</h6>
                         <select name="maladie_specifique">
-                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+                            <option disabled selected value="0">{{__('messages.choisisssez_une_reponse')}}</option>
                             <option value="1">{{__('messages.oui')}}</option>
                             <option value="0">{{__('messages.non')}}</option>
 
@@ -165,7 +165,7 @@
                     <div class="form-row">
                         <h6 style="color: bisque">{{__('messages.maladie_respiratoire')}}</h6>
                         <select name="maladie_respiratoire">
-                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+                            <option disabled selected value="0">{{__('messages.choisisssez_une_reponse')}}</option>
                             <option value="1">{{__('messages.oui')}}</option>
                             <option value="0">{{__('messages.non')}}</option>
 
@@ -175,7 +175,7 @@
                     <div class="form-row">
                         <h6 style="color: bisque">{{__('messages.maladie_vue')}}</h6>
                         <select name="maladie_vue">
-                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+                            <option disabled selected value="0">{{__('messages.choisisssez_une_reponse')}}</option>
                             <option value="1">{{__('messages.oui')}}</option>
                             <option value="0">{{__('messages.non')}}</option>
 
@@ -185,7 +185,7 @@
                     <div class="form-row">
                         <h6 style="color: bisque">{{__('messages.maladie_audition')}}</h6>
                         <select name="maladie_audition">
-                            <option disabled selected>{{__('messages.choisisssez_une_reponse')}}</option>
+                            <option disabled selected value="0">{{__('messages.choisisssez_une_reponse')}}</option>
                             <option value="1">{{__('messages.oui')}}</option>
                             <option value="0">{{__('messages.non')}}</option>
 

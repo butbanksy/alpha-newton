@@ -46,7 +46,7 @@ class AdminController extends Controller
     {
         return view("admin/students/export_pdf");
     }
-    
+
 
     public function showStudents()
     {
@@ -64,7 +64,7 @@ class AdminController extends Controller
 
         return view("admin/students/students-table", ["etudiants" => $etudiants]);
     }
-    
+
     function pdf($locale, Request $request)
     {
         $etudiants = Student::with('person')->whereHas('subjects', function ($query) use (&$request) {
@@ -73,26 +73,26 @@ class AdminController extends Controller
             ->where('nom', $request->input('matiere'));})
             ->get();
         $pdf = \App::make('dompdf.wrapper');
-        
-    
+
+        $matiere = $request->input('matiere');
         $a ='
         <a class="navbar-brand" style="margin:auto;"> <img src="../public/images/entete.png" height="150" width="700" /> </a><br><br>
-        
+
         <p>Prof : ............................................................ &nbsp; &nbsp; Date :.........................................</p>
-        <p>Matière :.....................................&nbsp; &nbsp; Niveau :.........................................</p>
+        <p>Matière : ...................................................... &nbsp; &nbsp; Niveau :.........................................</p>
         <table border="2" id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
        <thead>
            <tr>
                <th data-sortable="true" data-field="id">ID</th>
                <th date-sortable="true" data-field="prenom">Nom</th>
                <th date-sortable="true" data-field="nom">Prénom</th>
-               <th data-field="true">Abscent</th>
+               <th data-field="true">Absent</th>
                <th data-field="true">Présent</th>
-               
+
            </tr>
        </thead>
        <tbody>';
-       
+
            foreach($etudiants as $etudiant){
                $person = $etudiant->person;
            $a=$a."<tr>
@@ -101,23 +101,23 @@ class AdminController extends Controller
                <td>$person->prenom</td>
                <td></td>
                <td></td>
-            
+
            </tr>";}
-           
+
 
      $a=$a."  </tbody>
    </table>";
 
-        //$pdf = PDF::loadView('pdf_view', $data);  
+        //$pdf = PDF::loadView('pdf_view', $data);
         //return $pdf->download('medium.pdf');
         $pdf->loadHTML($a);
-        return $pdf->stream();    
+        return $pdf->stream();
     }
-    
 
 
-   
-    public function export($locale,Request $request) 
+
+
+    public function export($locale,Request $request)
     {
         return Excel::download(new UsersExport($request->niveau_scolaire,$request->matiere), 'alphaNewton.xlsx');
     }
@@ -165,27 +165,29 @@ class AdminController extends Controller
         $validatedData = $request->validate([
             'prenom' => 'required|min:3|max:30',
             'nom' => 'required|min:3|max:30',
+            'telephone' => 'required|numeric',
             'prenom_resp' => 'required|min:3|max:30',
             'nom_resp' => 'required|min:3|max:30',
-            'profession_resp' => 'required|min:3|max:30',
-            'adresse_resp' => 'required|min:3',
             'telephone_resp' => 'required|numeric',
+            'matiere_id' => 'array|min:1'
+
+            /*'profession_resp' => 'required|min:3|max:30',
+            'option' => 'required',
+            'adresse_resp' => 'required|min:3',
             'date_naissance' => 'required',
             'lieu_naissance' => 'required|min:2|max:40',
             'adresse' => 'required|min:3',
-            'telephone' => 'required|numeric',
             'niveau_scolaire' => 'required',
-            'option' => 'required',
             'etablissement' => 'required',
             'maladie_specifique' => 'required',
             'maladie_respiratoire' => 'required',
             'maladie_vue' => 'required',
             'maladie_audition' => 'required',
-            'matiere_id' => 'array|min:1'
+            */
         ]);
 
         $person = Person::findOrFail($student->personne_id);
-        $person->fill($request->except(['_token, _method, register']));
+        $person->fill($request->except([' _token, _method, register']));
 
         $responsable = Responsable::where('etudiant_id', $student->id)->first();
         $responsable->fill([
@@ -222,7 +224,6 @@ class AdminController extends Controller
             'lieu_naissance' => 'required|min:2|max:40',
             'adresse' => 'required|min:3',
             'telephone' => 'required|numeric',
-            'email' => 'required|email',
             'niveau_scolaire' => 'required',
             'option' => 'required',
             'etablissement' => 'required',
@@ -230,6 +231,7 @@ class AdminController extends Controller
             'maladie_respiratoire' => 'required',
             'maladie_vue' => 'required',
             'maladie_audition' => 'required',
+            //'email' => 'required|email',
         ]);
 
         $us = Person::findOrFail($professor->personne_id);
@@ -240,7 +242,7 @@ class AdminController extends Controller
         return redirect("/fr/admin/professeurs")->with(["message" => "Professeur modifié(e) avec succès"]);
     }
 
-    public function deleteProfessor($loacle, $id)
+    public function deleteProfessor($locale, $id)
     {
         Professor::destroy($id);
 

@@ -18,10 +18,10 @@ class CreateResponsablesTable extends Migration
             $table->unsignedBigInteger("etudiant_id");
             $table->string("prenom");
             $table->string("nom");
-            $table->string("profession");
-            $table->string("adresse");
+            $table->string("profession")->nullable();
+            $table->string("adresse")->nullable();
             $table->string("telephone");
-            $table->string("email");
+            $table->string("email")->nullable();
             $table->foreign("etudiant_id")->references("id")->on("etudiants")->onDelete('cascade');
             $table->timestamps();
         });

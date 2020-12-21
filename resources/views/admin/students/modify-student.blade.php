@@ -9,9 +9,20 @@
 @endpush
 
 @section("content")
-    @include('admin.header')
 
-
+    <nav class="navbar navbar-expand-lg ">
+        <a href="javascript:history.back()">
+            <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+                Page Précédente
+            </div>
+        </a>
+        <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/entete.png')}}" height="150" width="700" /> </a>
+        <a href="/">
+            <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+                Revenir à l'accueil
+            </div>
+        </a>
+    </nav>
     @if ($errors->any())
         <div class="container">
             <div class="alert alert-danger">
@@ -30,19 +41,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Font-->
     <link rel="stylesheet" type="text/css" href="{{URL::asset('/css/opensans-font.css')}}">
-    <link rel="stylesheet" type="text/css"
-          href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
     <!-- Main Style Css -->
-    <link rel="stylesheet" href="{{URL::asset('/css/style.css')}}"/>
+    <link rel="stylesheet" href="{{URL::asset('/css/style.css')}}" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Font-->
     <link rel="stylesheet" type="text/css" href="{{URL::asset('/css/montserrat-font.css')}}">
-    <link rel="stylesheet" type="text/css"
-          href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
     <form action="/fr/admin/student/edit/{{$student->id}}" method="post">
         @csrf
         @method('PUT')
+
 
         <div class="page-content">
             <div class="form-v10-content mb-1 mt-5">
@@ -52,55 +62,90 @@
 
                         <div class="form-group">
                             <div class="form-row form-row-1">
-                                <input type="text" value="{{$student->person->prenom}}" name="prenom" id="first_name"
-                                       class="input-text" placeholder="{{__('messages.prenom')}}" required>
+                                <input type="text" value="{{$student->person->prenom}}" name="prenom" id="first_name" class="input-text" placeholder="{{__('messages.prenom')}}" required>
                             </div>
                             <div class="form-row form-row-2">
-                                <input type="text" value="{{$student->person->nom}}" name="nom" id="last_name"
-                                       class="input-text"
-                                       placeholder="{{__('messages.nom')}}" required>
+                                <input type="text" value="{{$student->person->nom}}" name="nom" id="last_name" class="input-text" placeholder="{{__('messages.nom')}}" required>
                             </div>
                         </div>
                         <div class="form-row">
-                            <input type="date" value="{{$student->person->date_naissance}}" name="date_naissance"
-                                   class="company"
-                                   id="company" placeholder="{{__('messages.date_naissance')}}" required>
+                            <input type="date" value="{{$student->person->date_naissance}}" name="date_naissance" class="company" id="company" placeholder="{{__('messages.date_naissance')}}">
                         </div>
                         <div class="form-row">
-                            <input type="text" value="{{$student->person->lieu_naissance}}" name="lieu_naissance"
-                                   class="company"
-                                   id="company" placeholder="{{__('messages.lieu_naissance')}}" required>
+                            <input type="text" value="{{$student->person->lieu_naissance}}" name="lieu_naissance" class="company" id="company" placeholder="{{__('messages.lieu_naissance')}}">
                         </div>
                         <div class="form-row">
-                            <input type="text" value="{{$student->person->adresse}}" name="adresse" class="company"
-                                   id="company"
-                                   placeholder="{{__('messages.adresse')}}" required>
+                            <input type="text" value="{{$student->person->adresse}}" name="adresse" class="company" id="company" placeholder="{{__('messages.adresse')}}">
                         </div>
                         <div class="form-row">
-                            <input type="text" value="{{$student->person->telephone}}" name="telephone" class="company"
-                                   id="company" placeholder="{{__('messages.tel')}}" required>
+                            <input type="text" value="{{$student->person->telephone}}" name="telephone" class="company" id="company" placeholder="{{__('messages.tel')}}" required>
                         </div>
                         <div class="form-row">
-                            <input type="text" value="{{$student->person->email}}" name="email" class="company"
-                                   id="company"
-                                   placeholder="{{__('messages.email')}}" required>
+                            <input type="text" value="{{$student->person->email}}" name="email" class="company" id="company" placeholder="{{__('messages.email')}}">
                         </div>
 
 
                         <div class="form-row">
-                            <input type="text" value="{{$student->person->niveau_scolaire}}" name="niveau_scolaire"
-                                   class="company"
-                                   id="company" placeholder="{{__('messages.niveau_scolaire')}}" required>
+
+
+                            <select name="niveau_scolaire" id="select" placeholder="{{__('messages.niveau_scolaire')}}">
+                                <option disabled selected>Choisissez votre niveau scolaire</option>
+                                <option value="college">Collège</option>
+                                <option value="5eme">5ème</option>
+                                <option value="6eme">6ème</option>
+                                <option value="bacar">Bac Arabe</option>
+                                <option value="bacfr">Bac Francais</option>
+
+                            </select>
+                            <script>
+                                $(document).on("change", ".custom-control-input", function() {
+                                    var total = 0;
+                                    $('.custom-control-input:checked').each(function() {
+                                        total += parseInt($(this).attr('title'));
+                                    })
+                                    $('.total').html("Total : " + total + ' DH');
+                                })
+
+
+                                $('select').on('change', function(e) {
+
+
+                                    let url = `/fr/getNiveau/${e.target.value}`;
+                                    fetch(url)
+                                        .then(res => res.json(res))
+                                        .then(res => {
+                                            let html = ""
+                                            for (let el of res) {
+                                                parsedPrice = String(el.prix);
+                                                html += `<ul class="list-group list-group-flush">
+
+                           <li class="list-group-item">
+                               <!-- Default checked -->
+                                                <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" title= ${el.prix} class="custom-control-input" id="${el.id}"
+                                                name="matiere_id[]" value="${el.id}">
+                                                <label class="custom-control-label"
+                                                for="${el.id}">${el.nom}
+                                                </label>
+                                                </div>
+                                                </li>
+                                                </ul>
+                                                `
+                                        }
+                                        $("#a").html(html)
+                                        $('.total').html('Total : 0 DH');
+
+                                    })
+                                    .catch(err => console.log('Request Failed', err));
+
+                            });
+                        </script>
                         </div>
                         <div class="form-row">
-                            <input type="text" value="{{$student->person->option}}" name="option" class="company"
-                                   id="company"
-                                   placeholder="{{__('messages.option')}}" required>
+                            <input type="text" value="{{$student->person->option}}" name="option" class="company" id="company" placeholder="{{__('messages.option')}}" >
                         </div>
                         <div class="form-row">
-                            <input type="text" value="{{$student->person->etablissement}}" name="etablissement"
-                                   class="company"
-                                   id="company" placeholder="{{__('messages.etablissement')}}" required>
+                            <input type="text" value="{{$student->person->etablissement}}" name="etablissement" class="company" id="company" placeholder="{{__('messages.etablissement')}}">
                         </div>
 
 
@@ -176,20 +221,17 @@
                     <div class="form-left">
                         <h2>{{__('messages.matiere_de_soutien')}}</h2>
 
+                        <div id="a"></div>
+                        <div class="container-fluid" style="position:absolute; bottom:0;">
+                            <div class="col-sm-12 col-md-6 mb-3">
+                                <hr style="height: 3px;" />
 
-                        <ul class="list-group list-group-flush">
-                            @foreach($matieres as $matiere)
-                                <li class="list-group-item">
-                                    <!-- Default checked -->
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="{{$matiere->id}}"
-                                               name="matiere_id[]" value="{{$matiere->id}}">
-                                        <label class="custom-control-label"
-                                               for="{{$matiere->id}}">{{$matiere->nom}}</label>
-                                    </div>
-                                </li>
-                            @endforeach()
-                        </ul>
+                                <h5 class="total">Total : 0 DH</h5>
+                            </div>
+                        </div>
+
+
+
 
 
                     </div>
@@ -198,38 +240,28 @@
 
                         <div class="form-group">
                             <div class="form-row form-row-1">
-                                <input type="text" value="{{$student->responsable->prenom}}" name="prenom_resp"
-                                       id="first_name"
-                                       class="input-text" placeholder="{{__('messages.nom_resp')}}" required>
+                                <input type="text" value="{{$student->responsable->prenom}}" name="prenom_resp" id="first_name" class="input-text" placeholder="{{__('messages.nom_resp')}}" required>
                             </div>
                             <div class="form-row form-row-2">
-                                <input type="text" value="{{$student->responsable->nom}}" name="nom_resp" id="last_name"
-                                       class="input-text" placeholder="{{__('messages.prenom_resp')}}" required>
+                                <input type="text" value="{{$student->responsable->nom}}" name="nom_resp" id="last_name" class="input-text" placeholder="{{__('messages.prenom_resp')}}" required>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <input type="text" value="{{$student->responsable->email}}" name="email_resp"
-                                   class="company"
-                                   id="company" placeholder="{{__('messages.email')}}">
+                            <input type="text" value="{{$student->responsable->email}}" name="email_resp" class="company" id="company" placeholder="{{__('messages.email')}}">
                         </div>
                         <div class="form-row">
-                            <input type="text" value="{{$student->responsable->telephone}}" name="telephone_resp"
-                                   class="company"
-                                   id="company" placeholder="{{__('messages.tel')}}" required>
+                            <input type="text" value="{{$student->responsable->telephone}}" name="telephone_resp" class="company" id="company" placeholder="{{__('messages.tel')}}" required>
                         </div>
 
                         <div class="form-row">
-                            <input type="text" value="{{$student->responsable->profession}}" name="profession_resp"
-                                   class="company"
-                                   id="company" placeholder="{{__('messages.profession')}}" required>
+                            <input type="text" value="{{$student->responsable->profession}}" name="profession_resp" class="company" id="company" placeholder="{{__('messages.profession')}}">
                         </div>
                         <div class="form-row">
-                            <input type="text" value="{{$student->responsable->adresse}}" name="adresse_resp"
-                                   class="company"
-                                   id="company" placeholder="{{__('messages.adresse')}} " required>
+                            <input type="text" value="{{$student->responsable->adresse}}" name="adresse_resp" class="company" id="company" placeholder="{{__('messages.adresse')}} ">
 
                         </div>
+
 
 
                         <div class="form-row-last">

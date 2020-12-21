@@ -84,7 +84,7 @@
                     <div class="form-row">
                         <input type="text" value="{{$professeur->person->email}}" name="email" class="company"
                                id="company"
-                               placeholder="{{__('messages.email')}}" required>
+                               placeholder="{{__('messages.email')}}">
                     </div>
 
 

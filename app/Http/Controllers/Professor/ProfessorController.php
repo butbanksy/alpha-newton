@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Professor;
 use App\Http\Controllers\Controller;
 use App\Models\Person;
 use App\Models\Professor;
-use PDF;
 use Illuminate\Http\Request;
+use PDF;
 
 class ProfessorController extends Controller
 {
@@ -24,7 +24,6 @@ class ProfessorController extends Controller
             'lieu_naissance' => 'required|min:2|max:40',
             'adresse' => 'required|min:3',
             'telephone' => 'required|numeric',
-            'email' => 'required|email',
             'niveau_scolaire' => 'required',
             'option' => 'required',
             'etablissement' => 'required',
@@ -32,6 +31,7 @@ class ProfessorController extends Controller
             'maladie_respiratoire' => 'required',
             'maladie_vue' => 'required',
             'maladie_audition' => 'required',
+            //'email' => 'required|email',
         ]);
 
         $person = Person::create($request->all());
@@ -41,16 +41,18 @@ class ProfessorController extends Controller
 
         return view("success");
 
+        /*
         $pdf = PDF::loadView('pdf.professor',
             ["data" => $professor],
             ['default_font' => 'dejavusans']);
         return $pdf->stream('pdf');
+        */
     }
 
     public function pdf()
     {
         $pdf = PDF::loadView('pdf.professor',
-            [], [], ["font-family"=>"XB Riyaz"]);
+            [], [], ["font-family" => "XB Riyaz"]);
 
         return $pdf->stream('inscription.pdf');
     }

@@ -25,24 +25,18 @@ class StudentController extends Controller
             'prenom' => 'required|min:3|max:30',
             'nom' => 'required|min:3|max:30',
             'telephone' => 'required|numeric',
-            'prenom_resp' => 'required|min:3|max:30',
-            'nom_resp' => 'required|min:3|max:30',
-            'telephone_resp' => 'required|numeric',
-            'matiere_id' => 'array|min:1'
+            'matiere_id' => 'array|min:1',
+            /*
+            'profession_resp' => 'min:3|max:30',
+            'prenom_resp' => 'min:3|max:30',
+            'nom_resp' => 'min:3|max:30',
+            'telephone_resp' => 'numeric',
+            'adresse_resp' => 'min:3',
+            'lieu_naissance' => 'min:2|max:40',
+            'adresse' => 'min:3',
 
-            /*'profession_resp' => 'required|min:3|max:30',
-            'option' => 'required',
-            'adresse_resp' => 'required|min:3',
-            'date_naissance' => 'required',
-            'lieu_naissance' => 'required|min:2|max:40',
-            'adresse' => 'required|min:3',
-            'niveau_scolaire' => 'required',
-            'etablissement' => 'required',
-            'maladie_specifique' => 'required',
-            'maladie_respiratoire' => 'required',
-            'maladie_vue' => 'required',
-            'maladie_audition' => 'required',
             */
+
         ]);
 
         $person = Person::create($request->all());

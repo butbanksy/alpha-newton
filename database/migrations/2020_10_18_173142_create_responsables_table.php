@@ -16,11 +16,11 @@ class CreateResponsablesTable extends Migration
         Schema::create('responsables', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("etudiant_id");
-            $table->string("prenom");
-            $table->string("nom");
+            $table->string("prenom")->nullable();
+            $table->string("nom")->nullable();
             $table->string("profession")->nullable();
             $table->string("adresse")->nullable();
-            $table->string("telephone");
+            $table->string("telephone")->nullable();
             $table->string("email")->nullable();
             $table->foreign("etudiant_id")->references("id")->on("etudiants")->onDelete('cascade');
             $table->timestamps();

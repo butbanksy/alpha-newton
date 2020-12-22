@@ -31,7 +31,6 @@ class ProfessorController extends Controller
             'maladie_respiratoire' => 'required',
             'maladie_vue' => 'required',
             'maladie_audition' => 'required',
-            //'email' => 'required|email',
         ]);
 
         $person = Person::create($request->all());

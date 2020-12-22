@@ -72,7 +72,7 @@
                                            value="Discard Changes"/>
                                     <a>
                                         <div class="btn btn-danger mb-3" data-toggle="modal"
-                                        data-target="#exampleModal">Supprimer <span aria-hidden="true">&#10005;
+                                             data-target="#exampleModal">Supprimer <span aria-hidden="true">&#10005;
                                             </span>
                                         </div>
                                     </a>
@@ -194,24 +194,6 @@
                                             </div>
                                             <div class="col-md-8 col-6">
                                                 {{$etudiant->person->option}}
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Nouvel étudiant</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                {{$etudiant->nouvel_etudiant ? "Oui" : "Non"}}
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Redoublant</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                {{$etudiant->redoublant ? "Oui" : "Non"}}
                                             </div>
                                         </div>
                                         <hr/>

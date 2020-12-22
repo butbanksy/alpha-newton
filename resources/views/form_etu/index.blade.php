@@ -226,10 +226,10 @@
 
                     <div class="form-group">
                         <div class="form-row form-row-1">
-                            <input type="text" value="{{old('prenom_resp')}}" name="prenom_resp" id="first_name" class="input-text" placeholder="{{__('messages.nom_resp')}}" required>
+                            <input type="text" value="{{old('prenom_resp')}}" name="prenom_resp" id="first_name" class="input-text" placeholder="{{__('messages.nom_resp')}}">
                         </div>
                         <div class="form-row form-row-2">
-                            <input type="text" value="{{old('nom_resp')}}" name="nom_resp" id="last_name" class="input-text" placeholder="{{__('messages.prenom_resp')}}" required>
+                            <input type="text" value="{{old('nom_resp')}}" name="nom_resp" id="last_name" class="input-text" placeholder="{{__('messages.prenom_resp')}}">
                         </div>
                     </div>
 
@@ -237,7 +237,7 @@
                         <input type="text" value="{{old('email_resp')}}" name="email_resp" class="company" id="company" placeholder="{{__('messages.email')}}">
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('telephone_resp')}}" name="telephone_resp" class="company" id="company" placeholder="{{__('messages.tel')}}" required>
+                        <input type="text" value="{{old('telephone_resp')}}" name="telephone_resp" class="company" id="company" placeholder="{{__('messages.tel')}}">
                     </div>
 
                     <div class="form-row">

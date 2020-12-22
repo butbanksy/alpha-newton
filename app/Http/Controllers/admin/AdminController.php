@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\admin;
 
+use App;
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Models\Person;
 use App\Models\Professor;
@@ -9,13 +11,8 @@ use App\Models\Responsable;
 use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
-
-use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
-
-use App;
-
 
 
 class AdminController extends Controller
@@ -38,10 +35,12 @@ class AdminController extends Controller
     {
         return view("admin/login");
     }
+
     public function excel_export()
     {
         return view("admin/students/excel_export");
     }
+
     public function export_pdf()
     {
         return view("admin/students/export_pdf");
@@ -58,8 +57,9 @@ class AdminController extends Controller
     {
         $etudiants = Student::with('person')->whereHas('subjects', function ($query) use (&$request) {
             return $query
-            ->where('niveau', $request->input('niveau_scolaire'))
-            ->where('nom', $request->input('matiere'));})
+                ->where('niveau', $request->input('niveau_scolaire'))
+                ->where('nom', $request->input('matiere'));
+        })
             ->get();
 
         return view("admin/students/students-table", ["etudiants" => $etudiants]);
@@ -69,13 +69,14 @@ class AdminController extends Controller
     {
         $etudiants = Student::with('person')->whereHas('subjects', function ($query) use (&$request) {
             return $query
-            ->where('niveau', $request->input('niveau_scolaire'))
-            ->where('nom', $request->input('matiere'));})
+                ->where('niveau', $request->input('niveau_scolaire'))
+                ->where('nom', $request->input('matiere'));
+        })
             ->get();
         $pdf = \App::make('dompdf.wrapper');
 
         $matiere = $request->input('matiere');
-        $a ='
+        $a = '
         <a class="navbar-brand" style="margin:auto;"> <img src="../public/images/entete.png" height="150" width="700" /> </a><br><br>
 
         <p>Prof : ............................................................ &nbsp; &nbsp; Date :.........................................</p>
@@ -93,19 +94,20 @@ class AdminController extends Controller
        </thead>
        <tbody>';
 
-           foreach($etudiants as $etudiant){
-               $person = $etudiant->person;
-           $a=$a."<tr>
+        foreach ($etudiants as $etudiant) {
+            $person = $etudiant->person;
+            $a = $a . "<tr>
                <td >$etudiant->id</td>
                <td>$person->nom</td>
                <td>$person->prenom</td>
                <td></td>
                <td></td>
 
-           </tr>";}
+           </tr>";
+        }
 
 
-     $a=$a."  </tbody>
+        $a = $a . "  </tbody>
    </table>";
 
         //$pdf = PDF::loadView('pdf_view', $data);
@@ -115,11 +117,9 @@ class AdminController extends Controller
     }
 
 
-
-
-    public function export($locale,Request $request)
+    public function export($locale, Request $request)
     {
-        return Excel::download(new UsersExport($request->niveau_scolaire,$request->matiere), 'alphaNewton.xlsx');
+        return Excel::download(new UsersExport($request->niveau_scolaire, $request->matiere), 'alphaNewton.xlsx');
     }
 
     public function showStudent($locale, $id)
@@ -166,24 +166,14 @@ class AdminController extends Controller
             'prenom' => 'required|min:3|max:30',
             'nom' => 'required|min:3|max:30',
             'telephone' => 'required|numeric',
-            'prenom_resp' => 'required|min:3|max:30',
-            'nom_resp' => 'required|min:3|max:30',
-            'telephone_resp' => 'required|numeric',
-            'matiere_id' => 'array|min:1'
-
-            /*'profession_resp' => 'required|min:3|max:30',
-            'option' => 'required',
-            'adresse_resp' => 'required|min:3',
-            'date_naissance' => 'required',
-            'lieu_naissance' => 'required|min:2|max:40',
-            'adresse' => 'required|min:3',
-            'niveau_scolaire' => 'required',
-            'etablissement' => 'required',
-            'maladie_specifique' => 'required',
-            'maladie_respiratoire' => 'required',
-            'maladie_vue' => 'required',
-            'maladie_audition' => 'required',
-            */
+            'matiere_id' => 'array|min:1',
+            'profession_resp' => 'min:3|max:30',
+            'prenom_resp' => 'min:3|max:30',
+            'nom_resp' => 'min:3|max:30',
+            'telephone_resp' => 'numeric',
+            'adresse_resp' => 'min:3',
+            'lieu_naissance' => 'min:2|max:40',
+            'adresse' => 'min:3',
         ]);
 
         $person = Person::findOrFail($student->personne_id);

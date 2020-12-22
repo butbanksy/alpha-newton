@@ -16,7 +16,7 @@
                 <h4><b style="color:black" ;>Veuillez séléctionner une langue</b></h4>
                 <br>
                 <h4 style="direction: rtl"><b style="color:black" ;>المرجو اختيار اللغة</b></h4>
-                <div class="d-flex justify-content-around align-items-center" style="height: 50vh">
+                <div class="d-flex justify-content-around align-items-center" style="height: 20vh">
                     <h5>
                         <a href="fr/inscription">
                             <img src="{{asset('/images/Flag_of_France.svg')}}" alt="Français" width="200" height="133">

@@ -20,10 +20,11 @@ class ProfessorController extends Controller
         $validatedData = $request->validate([
             'prenom' => 'required|min:3|max:30',
             'nom' => 'required|min:3|max:30',
+            'telephone' => 'required|numeric',
+            /*
             'date_naissance' => '',
             'lieu_naissance' => 'required|min:2|max:40',
             'adresse' => 'required|min:3',
-            'telephone' => 'required|numeric',
             'niveau_scolaire' => 'required',
             'option' => 'required',
             'etablissement' => 'required',
@@ -31,7 +32,8 @@ class ProfessorController extends Controller
             'maladie_respiratoire' => 'required',
             'maladie_vue' => 'required',
             'maladie_audition' => 'required',
-        ]);
+            */
+            ]);
 
         $person = Person::create($request->all());
         $professor = Professor::create([

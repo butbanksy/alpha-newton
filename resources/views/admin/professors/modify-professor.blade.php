@@ -64,17 +64,17 @@
                         <h6 style="color: black">Date de naissance</h6>
                         <input type="date" name="date_naissance" value="{{$professeur->person->date_naissance}}"
                                class="company" id="company"
-                               placeholder="Date de Naissance" required>
+                               placeholder="Date de Naissance">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{$professeur->person->lieu_naissance}}" name="lieu_naissance"
                                class="company"
-                               id="company" placeholder="{{__('messages.lieu_naissance')}}" required>
+                               id="company" placeholder="{{__('messages.lieu_naissance')}}">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{$professeur->person->adresse}}" name="adresse" class="company"
                                id="company"
-                               placeholder="{{__('messages.adresse')}}" required>
+                               placeholder="{{__('messages.adresse')}}">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{$professeur->person->telephone}}" name="telephone" class="company"
@@ -91,17 +91,17 @@
                     <div class="form-row">
                         <input type="text" value="{{$professeur->person->niveau_scolaire}}" name="niveau_scolaire"
                                class="company"
-                               id="company" placeholder="{{__('messages.niveau_scolaire')}}" required>
+                               id="company" placeholder="{{__('messages.niveau_scolaire')}}">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{$professeur->person->option}}" name="option" class="company"
                                id="company"
-                               placeholder="{{__('messages.option')}}" required>
+                               placeholder="{{__('messages.option')}}">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{$professeur->person->etablissement}}" name="etablissement"
                                class="company" id="company"
-                               placeholder="{{__('messages.etablissement')}}" required>
+                               placeholder="{{__('messages.etablissement')}}">
                     </div>
 
                 </div>

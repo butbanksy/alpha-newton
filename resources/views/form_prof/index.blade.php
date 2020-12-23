@@ -9,18 +9,18 @@
 @section("content")
 
     <nav class="navbar navbar-expand-lg ">
-    <a href="javascript:history.back()">
+        <a href="javascript:history.back()">
             <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
                 Page Précédente
             </div>
         </a>
         <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/entete.png')}}" height="150"
                                                            width="700"/> </a>
-                                                           <a href="/">
-                                                            <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
-                                                                Revenir à l'accueil
-                                                            </div>
-                                                        </a>
+        <a href="/">
+            <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+                Revenir à l'accueil
+            </div>
+        </a>
 
     </nav>
     <div class="container">
@@ -74,16 +74,14 @@
                     </div>
                     <div class="form-row">
                         <h6 style="color: black">Date de naissance</h6>
-                        <input type="date" name="date_naissance" value="{{old('date_naissance')}}" class="company" id="company"
-                               placeholder="Date de Naissance" required>
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('lieu_naissance')}}" name="lieu_naissance" class="company"
-                               id="company" placeholder="{{__('messages.lieu_naissance')}}" required>
+                               id="company" placeholder="{{__('messages.lieu_naissance')}}">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('adresse')}}" name="adresse" class="company" id="company"
-                               placeholder="{{__('messages.adresse')}}" required>
+                               placeholder="{{__('messages.adresse')}}">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('telephone')}}" name="telephone" class="company" id="company"
@@ -91,21 +89,22 @@
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('email')}}" name="email" class="company" id="company"
-                               placeholder="{{__('messages.email')}}" >
+                               placeholder="{{__('messages.email')}}">
                     </div>
 
 
                     <div class="form-row">
                         <input type="text" value="{{old('niveau_scolaire')}}" name="niveau_scolaire" class="company"
-                               id="company" placeholder="{{__('messages.niveau_scolaire')}}" required>
+                               id="company" placeholder="{{__('messages.niveau_scolaire')}}">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('option')}}" name="option" class="company" id="company"
-                               placeholder="{{__('messages.option')}}" required>
+                               placeholder="{{__('messages.option')}}">
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('etablissement')}}" name="etablissement" class="company" id="company"
-                               placeholder="{{__('messages.etablissement')}}" required>
+                        <input type="text" value="{{old('etablissement')}}" name="etablissement" class="company"
+                               id="company"
+                               placeholder="{{__('messages.etablissement')}}">
                     </div>
 
                 </div>

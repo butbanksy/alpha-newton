@@ -167,6 +167,7 @@ class AdminController extends Controller
             'nom' => 'required|min:3|max:30',
             'telephone' => 'required|numeric',
             'matiere_id' => 'array|min:1',
+            /*
             'profession_resp' => 'min:3|max:30',
             'prenom_resp' => 'min:3|max:30',
             'nom_resp' => 'min:3|max:30',
@@ -174,6 +175,9 @@ class AdminController extends Controller
             'adresse_resp' => 'min:3',
             'lieu_naissance' => 'min:2|max:40',
             'adresse' => 'min:3',
+
+            */
+
         ]);
 
         $person = Person::findOrFail($student->personne_id);
@@ -210,10 +214,11 @@ class AdminController extends Controller
         $validatedData = $request->validate([
             'prenom' => 'required|min:3|max:30',
             'nom' => 'required|min:3|max:30',
+            'telephone' => 'required|numeric',
+            /*
             'date_naissance' => '',
             'lieu_naissance' => 'required|min:2|max:40',
             'adresse' => 'required|min:3',
-            'telephone' => 'required|numeric',
             'niveau_scolaire' => 'required',
             'option' => 'required',
             'etablissement' => 'required',
@@ -221,8 +226,8 @@ class AdminController extends Controller
             'maladie_respiratoire' => 'required',
             'maladie_vue' => 'required',
             'maladie_audition' => 'required',
-            //'email' => 'required|email',
-        ]);
+            */
+        ]);;
 
         $us = Person::findOrFail($professor->personne_id);
 

@@ -22,7 +22,7 @@ class CreatePeopleTable extends Migration
             $table->string("adresse")->nullable();
             $table->string("telephone");
             $table->string("email")->nullable();
-            $table->string("niveau_scolaire");
+            $table->string("niveau_scolaire")->nullable();
             $table->string("option")->nullable();
             $table->string("etablissement")->nullable();
             $table->boolean("maladie_specifique")->nullable();

@@ -16,49 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /*
-                $person = Person::create([
-                    "nom" => "Mahmoud",
-                    "prenom" => "Rhazzoul",
-                    "date_naissance" => "1997/07/07",
-                    "lieu_naissance" => "Safi",
-                    "maladie_audition" => false,
-                    "maladie_vue" => false,
-                    "maladie_respiratoire" => false,
-                    "maladie_specifique" => false,
-                    "etablissement" => "ENSA",
-                    "option" => "Systèmes et Réseaux informatiques",
-                    "niveau_scolaire" => "4ème Année",
-                    "email" => "mrhazzoul@gmail.com",
-                    "telephone" => "0660004848",
-                    "adresse" => "16, Rue Lisbonne, Safi"
-                ]);
-
-                $student = Student::create([
-                    "personne_id" => $person->id,
-                    "nouvel_etudiant" => true,
-                    "redoublant" => false,
-                ]);
-
-                $responsable = Responsable::create([
-                    "etudiant_id" => $student->id,
-                    "prenom" => "Omar",
-                    "nom" => "Rhazzoul",
-                    "profession" => "Photographe",
-                    "adresse" => "16, Rue Lisbonne, Quartier Industriel",
-                    "telephone" => "0660004848",
-                    "email" => "mrhazzoul@gmail.com",
-                ]);
-        */
-
-// HEAD
-// HEAD
         return view("home");
-
-
-
-//=======
-       // return view("home")// 775c4e9083b98857a25ddf192abab9290bca09ba
     }
 
     public function header()

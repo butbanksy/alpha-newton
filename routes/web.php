@@ -31,6 +31,8 @@ Route::group(['prefix' => '{language}'], function () {
     //Admin routes
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/login', [AdminController::class, 'login']);
+    Route::get('/admin/account/change-password', [AdminController::class, 'changePassword']);
+    Route::post('/admin/account/change-password', [AdminController::class, 'updatePassword']);
 
     Route::post('/admin/students/excel', [AdminController::class, 'export']);
     Route::get('/admin/students', [AdminController::class, 'showStudents']);

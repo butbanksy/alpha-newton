@@ -10,7 +10,10 @@ use App\Models\Professor;
 use App\Models\Responsable;
 use App\Models\Student;
 use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
@@ -34,6 +37,32 @@ class AdminController extends Controller
     public function login()
     {
         return view("admin/login");
+    }
+
+    public function changePassword()
+    {
+        return view("admin/account-settings");
+    }
+
+    public function updatePassword($locale, Request $request)
+    {
+        $validatedData = $request->validate([
+            'currentPassword' => 'required',
+            'password' => 'required|same:password',
+            'passwordConfirmation' => 'required|same:password',
+
+        ]);
+
+        $user =  Auth::user();
+
+        if (Hash::check($request->input('currentPassword'), $user->password)) {
+            $user->password = Hash::make($request->input('password'));
+            $user->save();
+
+            return redirect()->back()->with(["success" => "Mot de passe modifié avec succès"]);
+        } else {
+            return redirect()->back()->with("error", "Le mot de passe actuel ne correspond pas avec l'ancien mot de passe.");
+        }
     }
 
     public function excel_export()

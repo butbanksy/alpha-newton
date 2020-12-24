@@ -3,9 +3,7 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             Alpha Newton
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -19,35 +17,36 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login', app()->getLocale()) }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login', app()->getLocale()) }}">{{ __('Login') }}</a>
+                </li>
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a>
+                </li>
+                @endif
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item" href="/fr/admin/account/change-password/">
+                            Changer le mot de passe
+                        </a>
+                        <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
 
-                            <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST"
-                                  class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                        <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
                 @endguest
             </ul>
         </div>
@@ -56,8 +55,6 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <a class="navbar-brand" style="margin:auto;"> <img
-                src="{{URL::asset('/images/entete.png')}}" height="150"
-                width="700"/> </a>
+        <a class="navbar-brand" style="margin:auto;"> <img src="{{URL::asset('/images/entete.png')}}" height="150" width="700" /> </a>
     </div>
 </div>

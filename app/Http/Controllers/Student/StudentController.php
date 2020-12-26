@@ -86,8 +86,6 @@ class StudentController extends Controller
     public function getNiveau($local, $niveau)
     {
         $n = Subject::where("niveau", $niveau)->get();
-
         return \response()->json($n);
     }
-
 }

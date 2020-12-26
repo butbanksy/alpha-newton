@@ -32,14 +32,15 @@
 
                        <label for="niveau">Niveau </label>
                 <select name="niveau" id="niveau" placeholder="{{__('messages.niveau_scolaire')}}">
-                            <option disabled selected>Choisissez votre niveau scolaire</option>
-                            <option value="college">Collège</option>
-                            <option value="5eme">5ème</option>
-                            <option value="6eme">6ème</option>
-                            <option value="bacar">Bac Arabe</option>
-                            <option value="bacfr">Bac Francais</option>
+                    <option disabled selected>Choisissez votre niveau scolaire</option>
+                    <option value="college">Collège</option>
+                    <option value="5eme">5ème</option>
+                    <option value="6eme">6ème</option>
+                    <option value="bacar">Bac Arabe</option>
+                    <option value="bacfr">Bac Francais</option>
 
-                        </select>
+                </select>
+
 
                 <button class="btn btn-info btn-block" type="submit">Ajouter</button>
             </form>

@@ -137,10 +137,11 @@
                                     .catch(err => console.log('Request Failed', err));
 
                             });
+
                         </script>
                     </div>
                     <div class="form-row">
-                        <input type="text" value="{{old('option')}}" name="option" class="company" id="company" placeholder="{{__('messages.option')}}" >
+                        <input type="text" value="{{old('option')}}" name="option" class="company" id="company" placeholder="{{__('messages.option')}}">
                     </div>
                     <div class="form-row">
                         <input type="text" value="{{old('etablissement')}}" name="etablissement" class="company" id="company" placeholder="{{__('messages.etablissement')}}">
@@ -248,10 +249,8 @@
 
                     </div>
 
-
-
                     <div class="form-row-last">
-                        <input type="submit" name="register" class="register" value="{{__('messages.envoyer')}}">
+                        <input type="submit" name="register" class="register" value="{{__('messages.envoyer')}}" onclick=" this.disabled=true;this.value='Envoi en cours...' ;this.form.submit();">
                     </div>
                 </div>
             </div>

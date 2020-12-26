@@ -31,23 +31,29 @@
         display: inline-block;
         margin: 0 auto;
     }
+
 </style>
 @section("content")
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-6">
-                <div class="card">
-                    <div class="row justify-content-center">
-                        <div
-                            style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-                            <i style="font-size:100px; color: #88B04B;">✓</i>
-                        </div>
-                    </div>
-                    <h1>Inscription Réussie</h1>
-                    <p>Votre inscription a bien été faite;</p>
-                </div>
-            </div>
-
+<div class="container">
+    <a href="/">
+        <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+            Revenir à l'accueil
         </div>
+    </a>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6">
+            <div class="card">
+                <div class="row justify-content-center">
+                    <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+                        <i style="font-size:100px; color: #88B04B;">✓</i>
+                    </div>
+                </div>
+                <h1>Inscription Réussie</h1>
+                <p>Votre inscription a bien été faite;</p>
+            </div>
+        </div>
+
     </div>
+</div>
 @endsection

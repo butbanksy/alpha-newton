@@ -31,8 +31,15 @@
                        placeholder="Entrer le prix de la matière...">
 
                        <label for="niveau">Niveau </label>
-                <input type="text" id="niveau" name="niveau" class="form-control mb-4"
-                       placeholder="Entrer le niveau de la matière...">
+                <select name="niveau" id="niveau" placeholder="{{__('messages.niveau_scolaire')}}">
+                            <option disabled selected>Choisissez votre niveau scolaire</option>
+                            <option value="college">Collège</option>
+                            <option value="5eme">5ème</option>
+                            <option value="6eme">6ème</option>
+                            <option value="bacar">Bac Arabe</option>
+                            <option value="bacfr">Bac Francais</option>
+
+                        </select>
 
                 <button class="btn btn-info btn-block" type="submit">Ajouter</button>
             </form>

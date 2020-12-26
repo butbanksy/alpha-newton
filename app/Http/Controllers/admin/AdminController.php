@@ -53,9 +53,10 @@ class AdminController extends Controller
 
         ]);
 
-        $user =  Auth::user();
+        $id =  Auth::user()->id;
 
-        if (Hash::check($request->input('currentPassword'), $user->password)) {
+        if (Hash::check($request->input('currentPassword'), Auth::user()->password)) {
+            $user = User::find($id);
             $user->password = Hash::make($request->input('password'));
             $user->save();
 

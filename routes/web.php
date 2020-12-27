@@ -42,6 +42,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/admin/student/edit/{id}', [AdminController::class, 'modifyStudent']);
     Route::put('/admin/student/edit/{student}', [AdminController::class, 'putStudent']);
     Route::get('/admin/student/delete/{id}', [AdminController::class, 'deleteStudent']);
+    Route::get('/admin/student/print-receipt/{id}', [AdminController::class, 'printReceipt']);
 
     Route::get('/admin/professeurs', [AdminController::class, 'showProfessors']);
     Route::get('/admin/professeur/{id}', [AdminController::class, 'showProfessor']);

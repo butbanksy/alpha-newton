@@ -1,9 +1,9 @@
 @extends('master')
 @section("content")
-    @include('admin.header')
+@include('admin.header')
 
-    <div class="container">
-    <div class="row">
+<div class="container-fluid">
+    <div class="row px-5">
         @if(session("message"))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{session("message")}}
@@ -20,29 +20,29 @@
 
     </div>
 
-        <div class="col-sm-12 pt-5">
-            <h4>Filtrer votre recherche</h4>
+    <div class="col-sm-12 pt-5 px-5">
+        <h4>Filtrer votre recherche</h4>
+    <form id="myForm" action="/fr/admin/students/filter" method="post">
+        @csrf
+        <select name="niveau_scolaire" id="niveaux" placeholder="{{__('messages.niveau_scolaire')}}">
+            <option disabled selected>Choisissez votre niveau scolaire</option>
+            <option value="college">Collège</option>
+            <option value="5eme">5ème</option>
+            <option value="6eme">6ème</option>
+            <option value="bacar">Bac Arabe</option>
+            <option value="bacfr">Bac Francais</option>
+        </select>
+
+        <select name="matiere" id="matiere" placeholder="{{__('messages.niveau_scolaire')}}">
+            <option disabled selected>Choisissez votre matière</option>
+        </select>
+
+        <div class="btn btn-primary" id="getInfo">
+            Chercher
         </div>
-        <form id="myForm" action="/fr/admin/students/filter" method="post">
-            @csrf
-            <select name="niveau_scolaire" id="niveaux" placeholder="{{__('messages.niveau_scolaire')}}">
-                <option disabled selected>Choisissez votre niveau scolaire</option>
-                <option value="college">Collège</option>
-                <option value="5eme">5ème</option>
-                <option value="6eme">6ème</option>
-                <option value="bacar">Bac Arabe</option>
-                <option value="bacfr">Bac Francais</option>
-            </select>
 
-            <select name="matiere" id="matiere" placeholder="{{__('messages.niveau_scolaire')}}">
-                <option disabled selected>Choisissez votre matière</option>
-            </select>
-
-            <div class="btn btn-primary" id="getInfo">
-               Chercher
-            </div>
-
-        </form>
+    </form>
+    </div>
 
 
     <script>
@@ -78,47 +78,58 @@
                 .catch(err => console.log('Request Failed', err));
 
         });
+
     </script>
 
-    <table id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
-        <thead>
-            <tr>
-                <th data-sortable="true" data-field="id">ID</th>
-                <th date-sortable="true" data-field="prenom">Prénom</th>
-                <th date-sortable="true" data-field="nom">Nom</th>
-                <th data-field="date_naissance">Date de naissance</th>
-                <th data-field="telephone">Téléphone</th>
-                <th data-field="niveau_scolaire">Niveau scolaire</th>
-                <th data-field="option">Option</th>
-                <th data-field="etablissement">Etablissement</th>
-                <th data-field="button">Plus d'infos</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($etudiants as $etudiant)
-            <tr>
-                <td data-toggle="table" scope="row" class="id" id={{$etudiant->id}}>{{$etudiant->id}}</td>
-                <td>{{$etudiant->person->nom}}</td>
-                <td>{{$etudiant->person->prenom}}</td>
-                <td class="text-right">{{$etudiant->person->date_naissance}}</td>
-                <td>{{$etudiant->person->telephone}}</td>
-                <td>{{$etudiant->person->niveau_scolaire}}</td>
-                <td>{{$etudiant->person->option}}</td>
-                <td> {{$etudiant->person->etablissement}}
-                </td>
-                <td>
-                    <a href="/fr/admin/student/{{$etudiant->id}}">
-                        <div class="btn btn-primary more-info">
-                            Plus d'infos
-                        </div>
-                    </a>
-                </td>
-            </tr>
-            @endforeach()
+    <div class="px-5">
 
-        </tbody>
-    </table>
+        <table id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
+            <thead>
+                <tr>
+                    <th data-sortable="true" data-field="id">ID</th>
+                    <th date-sortable="true" data-field="prenom">Prénom</th>
+                    <th date-sortable="true" data-field="nom">Nom</th>
+                    <th data-field="date_naissance">Date de naissance</th>
+                    <th data-field="telephone">Téléphone</th>
+                    <th data-field="niveau_scolaire">Niveau scolaire</th>
+                    <th data-field="option">Option</th>
+                    <th data-field="etablissement">Etablissement</th>
+                    <th data-field="button">Plus d'infos</th>
+                    <th data-field="recu">Reçu</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($etudiants as $etudiant)
+                <tr>
+                    <td data-toggle="table" scope="row" class="id" id={{$etudiant->id}}>{{$etudiant->id}}</td>
+                    <td>{{$etudiant->person->nom}}</td>
+                    <td>{{$etudiant->person->prenom}}</td>
+                    <td class="text-right">{{$etudiant->person->date_naissance}}</td>
+                    <td>{{$etudiant->person->telephone}}</td>
+                    <td>{{$etudiant->person->niveau_scolaire}}</td>
+                    <td>{{$etudiant->person->option}}</td>
+                    <td> {{$etudiant->person->etablissement}}
+                    </td>
+                    <td>
+                        <a href="/fr/admin/student/{{$etudiant->id}}">
+                            <div class="btn btn-primary more-info">
+                                Plus d'infos
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/fr/admin/student/print-receipt/{{$etudiant->id}}">
+                            <div class="btn btn-primary more-info">
+                                Imprimer reçu
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                @endforeach()
 
+            </tbody>
+        </table>
+    </div>
 
 </div>
 </div>

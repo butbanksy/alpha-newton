@@ -11,12 +11,13 @@ use App\Models\Responsable;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\User;
+use Facade\FlareClient\Http\Exceptions\NotFound;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
-
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdminController extends Controller
 {
@@ -93,6 +94,19 @@ class AdminController extends Controller
             ->get();
 
         return view("admin/students/students-table", ["etudiants" => $etudiants]);
+    }
+
+    public function printReceipt($locale, int $id)
+    {
+        $etudiant = Student::where('id', $id)->with("person")->first();
+    
+        $pdf = PDF::loadView(
+            'pdf.inscription',
+            ["data" => $etudiant],
+            ['default_font' => 'dejavusans']
+        );
+        $pdf->stream('inscription.pdf');
+
     }
 
     function pdf($locale, Request $request)

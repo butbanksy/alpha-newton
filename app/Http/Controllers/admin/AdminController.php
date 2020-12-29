@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
-use PDF;
+use Barryvdh\DomPDF\Facade as PDFXD;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdminController extends Controller
@@ -99,14 +99,13 @@ class AdminController extends Controller
     public function printReceipt($locale, int $id)
     {
         $etudiant = Student::where('id', $id)->with("person")->first();
-    
+
         $pdf = PDF::loadView(
             'pdf.inscription',
             ["data" => $etudiant],
             ['default_font' => 'dejavusans']
         );
         $pdf->stream('inscription.pdf');
-
     }
 
     function pdf($locale, Request $request)
@@ -117,46 +116,17 @@ class AdminController extends Controller
                 ->where('nom', $request->input('matiere'));
         })
             ->get();
-        $pdf = \App::make('dompdf.wrapper');
 
-        $matiere = $request->input('matiere');
-        $a = '
-        <a class="navbar-brand" style="margin:auto;"> <img src="../public/images/entete.png" height="150" width="700" /> </a><br><br>
-
-        <p>Prof : ............................................................ &nbsp; &nbsp; Date :.........................................</p>
-        <p>Matière : ...................................................... &nbsp; &nbsp; Niveau :.........................................</p>
-        <table border="2" id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
-       <thead>
-           <tr>
-               <th data-sortable="true" data-field="id">ID</th>
-               <th date-sortable="true" data-field="prenom">Nom</th>
-               <th date-sortable="true" data-field="nom">Prénom</th>
-               <th data-field="true">Absent</th>
-               <th data-field="true">Présent</th>
-
-           </tr>
-       </thead>
-       <tbody>';
-
-        foreach ($etudiants as $etudiant) {
-            $person = $etudiant->person;
-            $a = $a . "<tr>
-               <td >$etudiant->id</td>
-               <td>$person->nom</td>
-               <td>$person->prenom</td>
-               <td></td>
-               <td></td>
-
-           </tr>";
-        }
-
-
-        $a = $a . "  </tbody>
-   </table>";
 
         //$pdf = PDF::loadView('pdf_view', $data);
         //return $pdf->download('medium.pdf');
-        $pdf->loadHTML($a);
+        $pdf = PDFXD::loadView(
+            'pdf.absence',
+            ['etudiants' => $etudiants],
+            ['default_font' => 'dejavusans']
+
+        );
+
         return $pdf->stream();
     }
 

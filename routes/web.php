@@ -67,6 +67,7 @@ Route::group(['prefix' => '{language}'], function () {
     //Student routes
     Route::get('/inscription/etudiant', [StudentController::class, 'index']);
     Route::post('/inscription/etudiant', [StudentController::class, 'store']);
+    Route::get('/inscription/pdf', [StudentController::class, 'streamPdf']);
 
 
 

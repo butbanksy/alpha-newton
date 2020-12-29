@@ -34,6 +34,8 @@
         type="text/css"
         href="{{asset('fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}"
     />
+    <link href="http://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
     <!-- Main Style Css -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/util.css')}}"/>

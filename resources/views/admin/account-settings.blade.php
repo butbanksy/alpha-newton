@@ -39,7 +39,7 @@
         <div class="w-100"></div>
 
 
-        <form method="POST" action="/fr/admin/account/change-password/" class="border border-light p-5">
+        <form method="POST" action="url{{/fr/admin/account/change-password/}}" class="border border-light p-5">
             @csrf
             <p class="h4 mb-4 text-center">Changer le mot de passe</p>
 

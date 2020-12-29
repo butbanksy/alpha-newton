@@ -8,6 +8,7 @@ use App\Models\Responsable;
 use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use PDF;
 
 class StudentController extends Controller
@@ -63,12 +64,21 @@ class StudentController extends Controller
             "email" => $request->email_resp,
         ]);
 
+        $etudiant = Student::where('id', $etudiant->id)->with('person')->first();
+
+        return redirect('/fr/inscription/pdf')->with(['data' => $etudiant]);
+    }
+
+    public function streamPdf()
+    {
+        $etudiant = Session::get('data');
         $pdf = PDF::loadView(
             'pdf.inscription',
             ["data" => $etudiant],
             ['default_font' => 'dejavusans']
         );
-        $pdf->stream('inscription.pdf');
+
+        return $pdf->stream('inscription');
     }
 
     public function pdf()

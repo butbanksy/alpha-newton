@@ -12,7 +12,8 @@
         }
 
         #absence,
-        #presence {
+        #presence,
+        #id {
             width: 10px;
         }
 
@@ -53,7 +54,7 @@
     <table id="customers" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
         <thead>
             <tr>
-                <th data-sortable="true" data-field="id">ID</th>
+                <th data-sortable="true" id="id" data-field="id">ID</th>
                 <th date-sortable="true" data-field="prenom">Nom</th>
                 <th date-sortable="true" data-field="nom">Prénom</th>
                 <th data-field="true" id="presence">Présent(e)</th>

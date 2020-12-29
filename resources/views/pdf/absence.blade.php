@@ -11,7 +11,8 @@
             width: 100%;
         }
 
-        #absence {
+        #absence,
+        #presence {
             width: 10px;
         }
 
@@ -55,6 +56,7 @@
                 <th data-sortable="true" data-field="id">ID</th>
                 <th date-sortable="true" data-field="prenom">Nom</th>
                 <th date-sortable="true" data-field="nom">Prénom</th>
+                <th data-field="true" id="presence">Présent(e)</th>
                 <th data-field="true" id="absence">Absent(e)</th>
 
             </tr>
@@ -65,6 +67,7 @@
                 <td>{{$etudiant->id}}</td>
                 <td>{{$etudiant->person->nom}}</td>
                 <td>{{$etudiant->person->prenom}}</td>
+                <td></td>
                 <td></td>
 
             </tr>

@@ -116,44 +116,6 @@ class AdminController extends Controller
                 ->where('nom', $request->input('matiere'));
         })
             ->get();
-<<<<<<< HEAD
-        $pdf = \App::make('dompdf.wrapper');
-
-        $matiere = $request->input('matiere');
-        $a = '<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-        <a class="navbar-brand" style="margin:auto;"> <img src="../public/images/entete.png" height="150" width="700" /> </a><br><br>
-
-        <p>Profأستاد: ............................................................ &nbsp; &nbsp; Date :.........................................</p>
-        <p>Matière : ...................................................... &nbsp; &nbsp; Niveau :.........................................</p>
-        <table border="1" id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
-       <thead>
-       
-           <tr>
-               <th data-sortable="true" data-field="id"> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;ID &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</th>
-               <th date-sortable="true" data-field="prenom">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Nom &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</th>
-               <th date-sortable="true" data-field="nom"> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Prénom &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</th>
-               <th data-field="true"> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Absent&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
-               <th data-field="true"> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Présent&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
-
-           </tr>
-       </thead>
-       <tbody >
-';
-
-        foreach ($etudiants as $etudiant) {
-            $person = $etudiant->person;
-            $a = $a . "<tr>
-               <td >$etudiant->id</td>
-               <td>$person->nom</td>
-               <td>$person->prenom</td>
-               <td></td>
-               <td></td>
-
-           </tr>";
-        }
-
-=======
->>>>>>> 10b955364363b5665b073d16fbffbdb92e465255
 
 
         //$pdf = PDF::loadView('pdf_view', $data);

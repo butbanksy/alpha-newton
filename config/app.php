@@ -166,6 +166,7 @@ return [
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */

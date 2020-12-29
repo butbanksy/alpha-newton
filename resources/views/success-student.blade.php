@@ -35,25 +35,31 @@
 </style>
 @section("content")
 <div class="container">
-
+    <a href="/">
+        <div class="btn btn-primary "><span aria-hidden="true">&#8592;</span>
+            Revenir à l'accueil
+        </div>
+    </a>
 
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-6">
             <div class="card">
                 <div class="row justify-content-center">
-                    <div style="text-center">
+                    <div class="text-center">
                         <i style="font-size:100px; color: #88B04B;">✓</i>
                     </div>
                 </div>
                 <h1>Inscription Réussie</h1>
                 <p>Votre inscription a bien été faite.</p>
-                <div class="text-center">
-                    <a href="/">
-                        <div class="btn btn-primary"><span aria-hidden="true">&#8592;</span>
-                            Revenir à l'accueil
-                        </div>
-                    </a>
-                </div>
+                <p>Veuillez cliquer sur le bouton pour télécharger le reçu de l'inscription.
+                <br/>
+                <form method="POST" action="{{url('/'.$app->getLocale().'/inscription/pdf')}}">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$etudiant->id}}" />
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit">Télécharger le PDF</button>
+                    </div>
+                </form>
             </div>
         </div>
 

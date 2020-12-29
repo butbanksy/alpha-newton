@@ -16,8 +16,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
-use Barryvdh\DomPDF\Facade as PDFXD;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -120,7 +120,7 @@ class AdminController extends Controller
 
         //$pdf = PDF::loadView('pdf_view', $data);
         //return $pdf->download('medium.pdf');
-        $pdf = PDFXD::loadView(
+        $pdf = PDF::loadView(
             'pdf.absence',
             ['etudiants' => $etudiants],
             ['default_font' => 'dejavusans']

@@ -66,12 +66,14 @@ class StudentController extends Controller
 
         $etudiant = Student::where('id', $etudiant->id)->with('person')->first();
 
-        return redirect('/fr/inscription/pdf')->with(['data' => $etudiant]);
+        return view('success-student', ['etudiant' => $etudiant]);
     }
 
-    public function streamPdf()
+
+
+    public function streamPdf(Request $request)
     {
-        $etudiant = Session::get('data');
+        $etudiant = Student::where('id', $request->id)->with('person')->first();
         $pdf = PDF::loadView(
             'pdf.inscription',
             ["data" => $etudiant],

@@ -49,7 +49,7 @@
 <!-- Font-->
 <link rel="stylesheet" type="text/css" href="{{URL::asset('/css/montserrat-font.css')}}">
 <link rel="stylesheet" type="text/css" href="{{URL::asset('/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
-<form action="/{{$app->getLocale()}}/inscription/etudiant" method="post">
+<form method="post" action="{{url('/'.$app->getLocale().'/inscription/etudiant')}}">
     @csrf
 
     <div class="page-content">

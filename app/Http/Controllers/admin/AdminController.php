@@ -16,8 +16,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
-use PDF;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -99,14 +99,13 @@ class AdminController extends Controller
     public function printReceipt($locale, int $id)
     {
         $etudiant = Student::where('id', $id)->with("person")->first();
-    
+
         $pdf = PDF::loadView(
             'pdf.inscription',
             ["data" => $etudiant],
             ['default_font' => 'dejavusans']
         );
         $pdf->stream('inscription.pdf');
-
     }
 
     function pdf($locale, Request $request)
@@ -117,6 +116,7 @@ class AdminController extends Controller
                 ->where('nom', $request->input('matiere'));
         })
             ->get();
+<<<<<<< HEAD
         $pdf = \App::make('dompdf.wrapper');
 
         $matiere = $request->input('matiere');
@@ -152,13 +152,19 @@ class AdminController extends Controller
            </tr>";
         }
 
+=======
+>>>>>>> 10b955364363b5665b073d16fbffbdb92e465255
 
-        $a = $a . "  </tbody>
-   </table>";
 
         //$pdf = PDF::loadView('pdf_view', $data);
         //return $pdf->download('medium.pdf');
-        $pdf->loadHTML($a);
+        $pdf = PDF::loadView(
+            'pdf.absence',
+            ['etudiants' => $etudiants],
+            ['default_font' => 'dejavusans']
+
+        );
+
         return $pdf->stream();
     }
 

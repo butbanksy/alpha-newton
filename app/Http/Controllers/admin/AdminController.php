@@ -120,23 +120,25 @@ class AdminController extends Controller
         $pdf = \App::make('dompdf.wrapper');
 
         $matiere = $request->input('matiere');
-        $a = '
+        $a = '<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <a class="navbar-brand" style="margin:auto;"> <img src="../public/images/entete.png" height="150" width="700" /> </a><br><br>
 
-        <p>Prof : ............................................................ &nbsp; &nbsp; Date :.........................................</p>
+        <p>Profأستاد: ............................................................ &nbsp; &nbsp; Date :.........................................</p>
         <p>Matière : ...................................................... &nbsp; &nbsp; Niveau :.........................................</p>
-        <table border="2" id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
+        <table border="1" id="table" data-toggle="table" data-pagination="true" data-locale="fr-FR" data-filter-control="true" data-search="true">
        <thead>
+       
            <tr>
-               <th data-sortable="true" data-field="id">ID</th>
-               <th date-sortable="true" data-field="prenom">Nom</th>
-               <th date-sortable="true" data-field="nom">Prénom</th>
-               <th data-field="true">Absent</th>
-               <th data-field="true">Présent</th>
+               <th data-sortable="true" data-field="id"> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;ID &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</th>
+               <th date-sortable="true" data-field="prenom">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Nom &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</th>
+               <th date-sortable="true" data-field="nom"> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Prénom &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</th>
+               <th data-field="true"> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Absent&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
+               <th data-field="true"> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Présent&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
 
            </tr>
        </thead>
-       <tbody>';
+       <tbody >
+';
 
         foreach ($etudiants as $etudiant) {
             $person = $etudiant->person;

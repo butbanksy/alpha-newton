@@ -36,6 +36,18 @@ class UsersExport implements FromCollection,WithMapping, WithHeadings
             'Id',
             'Nom',
             'Prénom',
+            'Telephone',
+            'Lieu de Naissance',
+            'Date de Naissance',
+            //'Maladie Spécifique','Adresse',
+            'Niveau Scolaire',
+            'Option',
+            'Etablissement',
+            'Maladie Spécifique',
+            'Maladie Respiratoire',
+            'Maladie Vue',
+            'Maladie Audition',
+
         ];
     }
     public function map($et): array
@@ -44,6 +56,18 @@ class UsersExport implements FromCollection,WithMapping, WithHeadings
             $et->personne_id,
             $et->person->nom,
             $et->person->prenom,
+            $et->person->telephone,
+            $et->person->lieu_naissance,
+            $et->person->date_naissance,
+           // $et->personne->adresse,
+            $et->person->niveau_scolaire,
+            $et->person->option,
+            $et->person->etablissement,
+            $et->person->maladie_specifique,
+            $et->person->maladie_respiratoire,
+            $et->person->maladie_vue,
+            $et->person->maladie_audition,
+
             // Date::dateTimeToExcel($invoice->created_at),
         ];
     }

@@ -8,14 +8,11 @@ class ExportExcelController extends Controller
 {
     public function excel()
     {
-        $etudiants = Student::with('person')->whereHas('subjects', function ($query) use (&$request) {
+        $etudiants = Student::with(['person', 'responsable'])->whereHas('subjects', function ($query) use (&$request) {
             return $query
-            ->where('niveau', $request->input('niveau_scolaire'))
-            ->where('nom', $request->input('matiere'));})
+                ->where('niveau', $request->input('niveau_scolaire'))
+                ->where('nom', $request->input('matiere'));
+        })
             ->get();
-
-        
     }
-    
-    
 }

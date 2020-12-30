@@ -47,7 +47,7 @@
 <body style="font-family: 'XB Riyaz',  monospace, sans-serif;">
     <a class="navbar-brand" style="margin:auto;"> <img src="../public/images/entete.png" height="150" width="700" /> </a><br><br>
 
-    <p>Prof : ............................................................ &nbsp; &nbsp; Date :.........................................</p>
+    <p>Prof : ............................................................ &nbsp; &nbsp; Date : {{date("d/m/Y")}}</p>
     <p>Matière : ...................................................... &nbsp; &nbsp; Niveau :.......................................</p>
 
 

@@ -9,25 +9,28 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 
-class UsersExport implements FromCollection,WithMapping, WithHeadings
+class UsersExport implements FromCollection, WithMapping, WithHeadings
 {
     private $niveau_scolaire;
     private $matiere;
-    public function __construct($niveau_scolaire,$matiere){
+    public function __construct($niveau_scolaire, $matiere)
+    {
         $this->matiere = $matiere;
         $this->niveau_scolaire = $niveau_scolaire;
     }
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
-        $etudiants = Student::select('personne_id')->with('person:id,nom,prenom')->whereHas('subjects', function ($query) use (&$request) {
+        $etudiants = Student::with(['person', 'responsable'])->whereHas('subjects', function ($query) use (&$request) {
             return $query
-            ->where('niveau', $this->niveau_scolaire)
-            ->where('nom', $this->matiere);            
-           
-        })->get();
+                ->where('niveau', $this->niveau_scolaire)
+                ->where('nom', $this->matiere);
+        })
+            ->get();
+
+
         return $etudiants;
     }
     public function headings(): array
@@ -39,7 +42,7 @@ class UsersExport implements FromCollection,WithMapping, WithHeadings
             'Telephone',
             'Lieu de Naissance',
             'Date de Naissance',
-            //'Maladie Spécifique','Adresse',
+            'Adresse',
             'Niveau Scolaire',
             'Option',
             'Etablissement',
@@ -47,10 +50,16 @@ class UsersExport implements FromCollection,WithMapping, WithHeadings
             'Maladie Respiratoire',
             'Maladie Vue',
             'Maladie Audition',
+            'Nom Responsable',
+            'Prenom Responsable',
+            'Adresse Responsable',
+            'Téléphone Responsable',
+            'Profession Responsable'
 
         ];
     }
     public function map($et): array
+
     {
         return [
             $et->personne_id,
@@ -59,7 +68,7 @@ class UsersExport implements FromCollection,WithMapping, WithHeadings
             $et->person->telephone,
             $et->person->lieu_naissance,
             $et->person->date_naissance,
-           // $et->personne->adresse,
+            $et->person->adresse,
             $et->person->niveau_scolaire,
             $et->person->option,
             $et->person->etablissement,
@@ -67,9 +76,11 @@ class UsersExport implements FromCollection,WithMapping, WithHeadings
             $et->person->maladie_respiratoire,
             $et->person->maladie_vue,
             $et->person->maladie_audition,
-
-            // Date::dateTimeToExcel($invoice->created_at),
+            $et->responsable->nom,
+            $et->responsable->prenom,
+            $et->responsable->adresse,
+            $et->responsable->telephone,
+            $et->responsable->profession
         ];
     }
-
 }
